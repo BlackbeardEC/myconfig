@@ -1,0 +1,40 @@
+cp mods mods.bak
+rename mods.bak
+mkdir img
+mkdir js
+mkdir lib
+rename snd
+mkdir assets
+mkdir ff
+mkdir rs401.com
+mkdir h8train.com
+mkdir old
+mkdir react-boilerplate2
+mkdir react-boilerplate3
+rename js-todo-list
+mkdir certificates
+extract %f
+shell extract %f
+shell extract MSEdge.Win10.RS2.VirtualBox.zip
+
+shell 
+find 
+shell mkdir templates
+rename shiro_chan.png
+mkdir course_stuff
+mkdir critical_reading
+mkdir SDEV-240-81_cpp1
+rename sisters-1976.jpg
+rename sisters-1977.jpg
+rename sisters-1999.jpg
+rename sisters-1975.jpg
+mkdir 1984
+open_with 
+delete
+rename adventure-time11.jpg
+mkdir mchax
+rename color_skull_4jJ.png
+bulkrename 
+help
+mkdir tmp
+rename rc.conf.old

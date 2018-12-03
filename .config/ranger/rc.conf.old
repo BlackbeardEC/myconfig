@@ -1,0 +1,3 @@
+set preview_images true
+#map bw chain shell wal -c -i %s && /home/blackbeard/.config/bspwm/bspwmrc && cp %s ~/wall.png
+map bw chain shell wal -c -i %s && cp %s ~/wall.png && ~/.config/bspwm/bspwmrc && ~/.local/bin/ffcolors && cp ~/.cache/wal/colors.Xresources ~/.Xcolors && ~/.local/bin/qutebrowser_reload.py
