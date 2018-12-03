@@ -1,0 +1,6 @@
+#!/bin/bash
+# Upload file/image to MAGAimg.net and return the url
+
+file_type=$(file --mime-type $1 | awk '{print $2}')
+
+curl -s -F "img[]=@$1;type=$file_type" -D - "http://magaimg.net" | grep "^Location" | awk '{print $2}'

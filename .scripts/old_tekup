@@ -1,0 +1,65 @@
+#!/usr/bin/env bash
+
+declare verbose=0
+declare deletionKey
+declare expire
+declare esc=$(printf '\033')
+declare c_reset="${esc}[0m"
+declare c_red="${esc}[31m"
+declare c_blue="${esc}[34m"
+
+info() {
+  echo -e "${c_blue}$1${c_reset}" >&2
+}
+
+err() {
+  echo -e "${c_red}$1${c_reset}" >&2
+}
+
+die() {
+  [[ -n "$1" ]] && err "$1"
+  exit 1
+}
+
+usage() {
+  LESS=-EXR less <<-'HELP'
+Usage: tekup [OPTIONS]
+  -h  print this help
+  -v  use verbose output
+HELP
+}
+
+OPTERR=0
+while getopts "hv" opt; do
+  case "$opt" in
+    h) usage; exit 0 ;;
+    v) (( verbose++ )) ;;
+    # d) deletionKey=true ;;
+    # e) expireDate=true ;;
+  esac
+done
+shift "$((OPTIND-1))"
+
+(( $# < 1 )) && die 'No files to upload.'
+
+for (( i=0; i <= $#; i++ )); do
+  file="$1" && shift
+
+  [[ -e "$file" ]] || die "$file does not exist"
+
+  mime=$(file -ib "$file")
+  mime="${mime%%/*}"
+
+  if [[ $mime == 'text' ]]; then
+    post=$(curl -s --data "title=${file##*/}" --data-urlencode "code=$(< "${file}")" https://api.teknik.io/v1/Paste)
+  else
+    post=$(curl -s -F "contentType=${mime}" -F "file=@${file}" https://api.teknik.io/v1/Upload)
+  fi
+
+  (( verbose > 0 )) && info "response: ${c_reset}${post}"
+
+  [[ -z "$post" || "$post" != *'http'* || "$post" =~ 'error' ]] && die "error uploading ${file}"
+
+  url=$(grep -oP 'https://[[:alnum:]?=%/_.:,;~@!#$&()*+-]+' <<< "$post")
+  echo "${file}: ${url}"
+done

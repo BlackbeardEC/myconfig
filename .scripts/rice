@@ -1,0 +1,25 @@
+#!/bin/bash
+# script to change colors using j4-make-config and wallpaper
+
+if [ -z $1 ]
+then
+	rice="Autism"
+elif [ -n $1 ]
+then
+  
+	rice=$1
+fi
+
+case $rice in
+   "1") exec j4-make-config -r 1 & feh --bg-scale /home/blackbeard/media/pics/walls/creepy-1452217666786.jpg;;
+   "green") exec j4-make-config -r green & feh --bg-scale /home/blackbeard/media/pics/walls/green-0u5pOJJ.jpg;;
+   "red") exec j4-make-config -r red & feh --bg-scale /home/blackbeard/media/pics/walls/rwby-rose.jpg;;
+   "black") exec j4-make-config -r black & feh --bg-scale /home/blackbeard/media/pics/walls/city01.jpg;;
+   "blue") exec j4-make-config -r blue & feh --bg-scale /home/blackbeard/media/pics/walls/blue-city.jpg;;
+   "brown") exec j4-make-config -r brown & feh --bg-scale /home/blackbeard/media/pics/walls/brown01.jpg;;
+   "purple") exec j4-make-config -r purple & feh --bg-scale /home/blackbeard/media/pics/walls/purple-space.jpg;;
+   "yellow") exec j4-make-config -r yellow & feh --bg-scale /home/blackbeard/media/pics/walls/kill-bill-cartoon.jpg;;
+   "orange") exec j4-make-config -r orange & feh --bg-scale /home/blackbeard/media/pics/walls/orange-forest.jpg;;
+   "damu") exec j4-make-config -r damu & feh --bg-scale /home/blackbeard/media/pics/walls/tech-n9ne02.jpg;;
+   *) echo "Sorry, I don't have any $rice rice for you!";;
+esac

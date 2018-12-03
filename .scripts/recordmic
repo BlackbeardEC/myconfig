@@ -1,0 +1,5 @@
+#!/bin/bash
+
+#arecord -f cd -t raw | lame -x – out.mp3
+
+arecord -f cd -r 44100 -t wav | lame - `date +%Y%m%d%H%M`.mp3

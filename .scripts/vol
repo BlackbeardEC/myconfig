@@ -1,0 +1,3 @@
+#!/bin/bash
+
+exec "amixer get Master | tail -n1 | awk \'{ print $5 }\' | tr -d \'[]\'"
