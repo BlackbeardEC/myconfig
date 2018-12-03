@@ -1,0 +1,17 @@
+#!/bin/bash
+
+C0=`xrdb -query | grep -E "^\*color0" | cut -d':' -f2 | sed -e 's/^[[:space:]]*//'`
+C7=`xrdb -query | grep -E "^\*color7" | cut -d':' -f2 | sed -e 's/^[[:space:]]*//'`
+C8=`xrdb -query | grep -E "^\*color8" | cut -d':' -f2 | sed -e 's/^[[:space:]]*//'`
+
+target_file="$HOME/.mozilla/firefox/invfyng9.default/chrome/userChrome.css"
+
+cp $target_file.in $target_file.tmp
+
+sed -i "s/%color0%/$C0/g" $target_file.tmp
+sed -i "s/%color7%/$C7/g" $target_file.tmp
+sed -i "s/%color8%/$C8/g" $target_file.tmp
+
+rm $target_file
+mv $target_file.tmp $target_file
+
