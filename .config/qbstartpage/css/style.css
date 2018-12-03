@@ -1,0 +1,76 @@
+:root{
+    --bg:#030203;
+    --fg:#ece880;
+    --fg-dark:#E99B1C;
+}
+
+body{
+    overflow:hidden;
+    background-color:var(--bg);
+    color:var(--fg);
+    background-image:url('../img/wall.png');
+    background-size:cover;
+    background-repeat:no-repeat;
+}
+
+#container a {
+    display:inline-block;
+    color:inherit;
+    text-decoration:none;
+    line-height:25px;
+    height:100%;
+    width:100%;
+}
+
+#container {
+    position:relative;
+    top:400px;
+    width:50%;
+    margin:auto;
+    display:flex;
+    flex-flow:row;
+    align-content:center;
+}
+
+.sqr {
+    flex:1 auto;
+    text-align: center;
+    padding-top:10px;
+    background-color:var(--bg);
+    width:150px;
+    height:150px;
+    margin:3px 3px;
+    border:5px solid var(--fg-dark);
+    overflow:hidden;
+    -moz-transition:all .25s ease-in-out;
+    -webkit-transition:all .25s ease-in-out;
+    -o-transition:all .25s ease-in-out;
+    transition:all .25s ease-in-out;
+    vertical-align:middle;
+}
+
+.sqr li{
+    display:none;
+    font-family: 'Inconsolata', monospace;
+}
+
+.sqr:hover{
+    height:100%;
+    font-family: 'Inconsolata', monospace;
+}
+
+.sqr:hover li{
+    display:block;
+}
+
+#container span {
+    width:inherit;
+    height:inherit;
+    line-height:100px;
+    text-transform:capitalize;
+    font-family: 'Tangerine', cursive;
+    font-size:2em;
+    text-shadow: 4px 4px 4px var(--fg-dark);
+}
+
+
