@@ -4,7 +4,7 @@
 
 bspc monitor -d 1 2 3 4 5 6 7 8 9 10
 
-# 
+#
 #FB=`xrdb -query | grep -E "^\*color7" | cut -d':' -f2 | sed -e 's/^[[:space:]]*//'`
 #NB=`xrdb -query | grep -E "^\*color0" | cut -d':' -f2 | sed -e 's/^[[:space:]]*//'`
 
@@ -25,7 +25,8 @@ bspc config gapless_monocle      true
 bspc config presel_feedback_color "$color0"
 bspc rule -a Gimp desktop='^8' state=floating follow=on
 bspc rule -a Firefox desktop='^2'
-bspc rule -a Qutebrowser desktop='^2'
+bspc rule -a qutebrowser desktop='^2'
+bspc rule -a Steam desktop='^5'
 bspc rule -a mpv state=floating
 bspc rule -a feh state=floating
 bspc rule -a Yad state=floating
@@ -58,3 +59,6 @@ then
 else
     dunst &
 fi
+
+#compton -b
+

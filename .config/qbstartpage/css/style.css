@@ -1,14 +1,14 @@
 :root{
-    --bg:#030203;
-    --fg:#ece880;
-    --fg-dark:#E99B1C;
+    --bg:#090B06;
+    --fg:#94bbbc;
+    --fg-dark:#678283;
 }
 
 body{
     overflow:hidden;
     background-color:var(--bg);
     color:var(--fg);
-    background-image:url('../img/wall.png');
+    background-image:url('../../../wall.png');
     background-size:cover;
     background-repeat:no-repeat;
 }

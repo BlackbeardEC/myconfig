@@ -5,15 +5,22 @@ config_version: 2
 settings:
   auto_save.session:
     global: true
+  content.headers.user_agent:
+    global: null
   content.javascript.enabled:
     '*://*./*': false
     '*://*.accounts.google.com/*': true
+    '*://*.adssettings.google.com/*': true
     '*://*.angel.co/*': true
     '*://*.angularjs.org/*': true
+    '*://*.app.joinhandshake.com/*': true
     '*://*.boards.4chan.org/*': true
+    '*://*.boards.4channel.org/*': true
     '*://*.careers.online.champlain.edu/*': true
+    '*://*.catalog.champlain.edu/*': true
     '*://*.champlain.instructure.com/*': true
     '*://*.champlain.joinhandshake.com/*': true
+    '*://*.champlainconnect.org/*': true
     '*://*.codepen.io/*': true
     '*://*.docs.google.com/*': true
     '*://*.drive.google.com/*': true
@@ -21,6 +28,7 @@ settings:
     '*://*.eeemo.net/*': true
     '*://*.gab.ai/*': true
     '*://*.github.com/*': true
+    '*://*.hupden.com/*': true
     '*://*.imgur.com/*': true
     '*://*.jquery.com/*': true
     '*://*.jsfiddle.net/*': true
@@ -33,8 +41,12 @@ settings:
     '*://*.online.washtrust.com/*': true
     '*://*.p.teknik.io/*': true
     '*://*.pay.ebay.com/*': true
+    '*://*.paypath.touchnet.net/*': true
+    '*://*.playrust.io/*': true
     '*://*.promotions.newegg.com/*': true
     '*://*.proquest-safaribooksonline-com.cobalt.champlain.edu/*': true
+    '*://*.redirectdetective.com/*': true
+    '*://*.regexr.com/*': true
     '*://*.rs401.com/*': true
     '*://*.secure.touchnet.net/*': true
     '*://*.shop.120ml.co/*': true
@@ -45,8 +57,10 @@ settings:
     '*://*.vcenter.champlain.edu/*': true
     '*://*.vi.stackexchange.com/*': true
     '*://*.vim.wikia.com/*': true
+    '*://*.webadvisor3.champlain.edu/*': true
     '*://*.www.120ml.co/*': true
     '*://*.www.alpharacks.com/*': true
+    '*://*.www.amazon.com/*': true
     '*://*.www.citationmachine.net/*': true
     '*://*.www.codingame.com/*': true
     '*://*.www.color-hex.com/*': true
@@ -57,11 +71,13 @@ settings:
     '*://*.www.freecodecamp.org/*': true
     '*://*.www.generatedata.com/*': true
     '*://*.www.howtogeek.com/*': true
+    '*://*.www.inkjets.com/*': true
     '*://*.www.liveleak.com/*': true
     '*://*.www.netflix.com/*': true
     '*://*.www.nvidia.com/*': true
     '*://*.www.paypal.com/*': true
     '*://*.www.reddit.com/*': true
+    '*://*.www.rustafied.com/*': true
     '*://*.www.shortcutfoo.com/*': true
     '*://*.www.sirver.net/*': true
     '*://*.www.w3schools.com/*': true
