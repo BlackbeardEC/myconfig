@@ -9,6 +9,8 @@ settings:
     global: null
   content.javascript.enabled:
     '*://*./*': false
+    '*://*.192.168.1.1/*': true
+    '*://*.9gag.com/*': true
     '*://*.accounts.google.com/*': true
     '*://*.adssettings.google.com/*': true
     '*://*.angel.co/*': true
@@ -32,12 +34,16 @@ settings:
     '*://*.imgur.com/*': true
     '*://*.jquery.com/*': true
     '*://*.jsfiddle.net/*': true
+    '*://*.learn.perl.org/*': true
     '*://*.libreelec.tv/*': true
     '*://*.libreelec.wiki/*': true
     '*://*.localhost/*': true
     '*://*.mail.google.com/*': true
     '*://*.markdowncss.github.io/*': true
+    '*://*.metacpan.org/*': true
     '*://*.my.champlain.edu/*': true
+    '*://*.news.ycombinator.com/*': true
+    '*://*.one-month-resolutions.codecademy.com/*': true
     '*://*.online.washtrust.com/*': true
     '*://*.p.teknik.io/*': true
     '*://*.pay.ebay.com/*': true
@@ -48,11 +54,14 @@ settings:
     '*://*.redirectdetective.com/*': true
     '*://*.regexr.com/*': true
     '*://*.rs401.com/*': true
+    '*://*.search.champlain.edu/*': true
     '*://*.secure.touchnet.net/*': true
     '*://*.shop.120ml.co/*': true
     '*://*.stackoverflow.com/*': true
     '*://*.tools.usps.com/*': true
+    '*://*.twitter.com/*': true
     '*://*.umod.org/*': true
+    '*://*.unicode-table.com/*': true
     '*://*.userstyles.org/*': true
     '*://*.vcenter.champlain.edu/*': true
     '*://*.vi.stackexchange.com/*': true
@@ -62,14 +71,18 @@ settings:
     '*://*.www.alpharacks.com/*': true
     '*://*.www.amazon.com/*': true
     '*://*.www.citationmachine.net/*': true
+    '*://*.www.codecademy.com/*': true
     '*://*.www.codingame.com/*': true
     '*://*.www.color-hex.com/*': true
+    '*://*.www.cpan.org/*': true
     '*://*.www.cplusplus.com/*': true
     '*://*.www.draw.io/*': true
     '*://*.www.ebay.com/*': true
     '*://*.www.facebook.com/*': true
     '*://*.www.freecodecamp.org/*': true
+    '*://*.www.geforce.com/*': true
     '*://*.www.generatedata.com/*': true
+    '*://*.www.h8train.com/*': true
     '*://*.www.howtogeek.com/*': true
     '*://*.www.inkjets.com/*': true
     '*://*.www.liveleak.com/*': true
@@ -80,6 +93,8 @@ settings:
     '*://*.www.rustafied.com/*': true
     '*://*.www.shortcutfoo.com/*': true
     '*://*.www.sirver.net/*': true
+    '*://*.www.twitch.tv/*': true
+    '*://*.www.udemy.com/*': true
     '*://*.www.w3schools.com/*': true
     '*://*.www.washtrust.com/*': true
     '*://*.www.youtube.com/*': true

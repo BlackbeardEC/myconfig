@@ -59,7 +59,21 @@ source $ZSH/oh-my-zsh.sh
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
-export PATH=~/.scripts:~/.config/bspwm:$PATH
+# Trying to fix my paths
+export ANDROID_HOME=$HOME/Android/Sdk
+export GOPATH=/home/blackbeard/code/go
+
+PATH=:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:~/.scripts:~/.config/bspwm:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$GOPATH/bin:/home/blackbeard/.local/bin:/home/blackbeard/.local/bin/colors
+
+export PATH;
+
+# export PATH=~/.scripts:~/.config/bspwm:$PATH
+# export PATH=$PATH:$ANDROID_HOME/tools
+# export PATH=$PATH:$ANDROID_HOME/platform-tools
+# export PATH=$PATH:$GOPATH/bin
+# export PATH=$PATH:/home/blackbeard/.local/bin
+# export PATH=$PATH:/home/blackbeard/.local/bin/colors
+
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -112,13 +126,6 @@ alias pscpu="ps -e -o pcpu,cpu,nice,state,cputime,args |sort -k1 -nr"
 alias pscpu10="ps -e -o pcpu,cpu,nice,state,cputime,args |sort -k1 -nr | head -10"
 alias hist10="print -l ${(o)history%% *} | uniq -c | sort -nr | head -n 10"
 
-export ANDROID_HOME=$HOME/Android/Sdk
-export PATH=$PATH:$ANDROID_HOME/tools
-export PATH=$PATH:$ANDROID_HOME/platform-tools
-export GOPATH=/home/blackbeard/code/go
-export PATH=$PATH:$GOPATH/bin
-export PATH=$PATH:/home/blackbeard/.local/bin
-export PATH=$PATH:/home/blackbeard/.local/bin/colors
 
 # Trying to fix unicode characters
 export LC_ALL=en_US.UTF-8

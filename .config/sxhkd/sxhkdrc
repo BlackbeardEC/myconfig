@@ -4,7 +4,7 @@
 
 # terminal emulator
 super + Return
-	urxvt
+    xst
 
 # program launcher
 super + @space
@@ -51,7 +51,7 @@ super + g
 #
 # state/flags
 #
- 
+
 # set the window state
 super + {t,shift + t,s,f}
 	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
@@ -162,8 +162,8 @@ super + u
     ~/.scripts/dmenuunicode
 
 # open battle.net
-alt + b
-    wine "/home/blackbeard/bnet/drive_c/Program Files (x86)/Battle.net/Battle.net Launcher.exe"
+# alt + b
+#     wine "/home/blackbeard/bnet/drive_c/Program Files (x86)/Battle.net/Battle.net Launcher.exe"
 
 # passmenu
 alt + p

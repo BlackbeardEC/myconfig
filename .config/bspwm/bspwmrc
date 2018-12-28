@@ -60,5 +60,8 @@ else
     dunst &
 fi
 
+xrdb ~/.Xdefaults
+
+
 #compton -b
 
