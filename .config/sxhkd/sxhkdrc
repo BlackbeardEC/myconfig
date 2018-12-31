@@ -169,3 +169,7 @@ super + u
 alt + p
     passmenu
 
+# run my rust auto clicking max craft script
+ctrl + alt + m
+    ~/.scripts/rust_auto_craft
+

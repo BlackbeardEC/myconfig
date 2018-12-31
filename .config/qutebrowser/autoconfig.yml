@@ -43,6 +43,7 @@ settings:
     '*://*.metacpan.org/*': true
     '*://*.my.champlain.edu/*': true
     '*://*.news.ycombinator.com/*': true
+    '*://*.one-day-resolutions.codecademy.com/*': true
     '*://*.one-month-resolutions.codecademy.com/*': true
     '*://*.online.washtrust.com/*': true
     '*://*.p.teknik.io/*': true
