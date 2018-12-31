@@ -71,6 +71,7 @@ settings:
     '*://*.www.120ml.co/*': true
     '*://*.www.alpharacks.com/*': true
     '*://*.www.amazon.com/*': true
+    '*://*.www.atlassian.com/*': true
     '*://*.www.citationmachine.net/*': true
     '*://*.www.codecademy.com/*': true
     '*://*.www.codingame.com/*': true
