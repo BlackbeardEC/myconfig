@@ -8,7 +8,7 @@ settings:
   content.headers.user_agent:
     global: null
   content.javascript.enabled:
-    '*://*./*': false
+    '*://*./*': true
     '*://*.192.168.1.1/*': true
     '*://*.9gag.com/*': true
     '*://*.accounts.google.com/*': true
@@ -84,6 +84,8 @@ settings:
     '*://*.www.freecodecamp.org/*': true
     '*://*.www.geforce.com/*': true
     '*://*.www.generatedata.com/*': true
+    '*://*.www.godaddy.com/*': true
+    '*://*.www.google.com/*': true
     '*://*.www.h8train.com/*': true
     '*://*.www.howtogeek.com/*': true
     '*://*.www.inkjets.com/*': true

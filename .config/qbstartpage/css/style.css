@@ -23,10 +23,11 @@ body{
 }
 
 #container {
-    position:relative;
-    top:400px;
+    position:absolute;
+    top:50%;
+    left:25%;
     width:50%;
-    margin:auto;
+    margin:0 auto;
     display:flex;
     flex-flow:row;
     align-content:center;
@@ -47,6 +48,8 @@ body{
     -o-transition:all .25s ease-in-out;
     transition:all .25s ease-in-out;
     vertical-align:middle;
+    display: inline-block;
+    justify-content: center;
 }
 
 .sqr li{

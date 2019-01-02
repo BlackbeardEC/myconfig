@@ -44,7 +44,7 @@ st.chscale:           1.0
 ! Kerning / character bounding-box width multiplier
 st.cwscale:           1.1
 ! opacity==255 means what terminal will be not transparent, 0 - fully transparent
-!st.opacity:      220
+st.opacity:      220
 
 !!!!!Colorz!!!!!
 #include "/home/blackbeard/.Xcolors"
