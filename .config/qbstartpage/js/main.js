@@ -56,8 +56,49 @@ var my_data = {
 
   ]
 }
+// Pull hacker news feed.
+
+  var hn_url = 'https://hacker-news.firebaseio.com/v0/topstories.json';
+  var news = document.getElementById('hnews');
+  var add_news = document.createDocumentFragment();
+  $.getJSON(hn_url,function(adata){
+  var items = [];
+    var ul = document.createElement('ul');
+    $.each(adata, function(k,data){
+      if(k<10){
+        $.getJSON("https://hacker-news.firebaseio.com/v0/item/" + data + ".json", function(item){
+          items.push(item);
+          console.log(item.url);
+          var hnli = document.createElement('li');
+          var hnlink = document.createElement('a');
+          hnlink.setAttribute('href', item.url);
+          hnlink.setAttribute('target', '_blank');
+          var hntext = document.createTextNode(item.title);
+          hnlink.appendChild(hntext);
+          hnli.appendChild(hnlink);
+          ul.appendChild(hnli);
+        });
+          add_news.appendChild(ul);
+  news.appendChild(add_news);
+      }
+    });
+  });
+
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function demo() {
+  console.log('Taking a break...');
+  await sleep(2000);
+  news.appendChild(add_news);
+  console.log('Two seconds later');
+}
+
+demo();
 
 
+// My links
 var output = document.getElementById('container');
 var to_add = document.createDocumentFragment();
 for(var i = 0; i < my_data.squares.length; i++){
@@ -77,11 +118,11 @@ for(var i = 0; i < my_data.squares.length; i++){
     li.appendChild(link);
     new_div.appendChild(li);
   }
-  
+
   //output.innerHTML += my_data.squares[i].name + ' ';
   to_add.appendChild(new_div);
 };
-  output.appendChild(to_add);
+output.appendChild(to_add);
 
 
 

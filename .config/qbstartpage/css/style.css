@@ -43,13 +43,13 @@ body{
     margin:3px 3px;
     border:5px solid var(--fg-dark);
     overflow:hidden;
-    -moz-transition:all .25s ease-in-out;
-    -webkit-transition:all .25s ease-in-out;
-    -o-transition:all .25s ease-in-out;
-    transition:all .25s ease-in-out;
     vertical-align:middle;
     display: inline-block;
     justify-content: center;
+    -moz-transition:height .25s ease-in-out;
+    -webkit-transition:height .25s ease-in-out;
+    -o-transition:height .25s ease-in-out;
+    transition:height .25s ease-in-out;
 }
 
 .sqr li{
@@ -75,5 +75,36 @@ body{
     font-size:2em;
     text-shadow: 4px 4px 4px var(--fg-dark);
 }
+
+
+#hnews {
+    position:absolute;
+    top:25%;
+    left:25%;
+    width:50%;
+    margin:0 auto;
+    display:flex;
+    flex-flow:row;
+    align-content:center;
+    background-color:var(--bg);
+    border:5px solid var(--fg-dark);
+}
+
+#hnews li{
+    font-family: 'Inconsolata', monospace;
+    display: inline-block;
+    float: left;
+    clear: left;
+    color:inherit;
+}
+
+#hnews a {
+    display:inline-block;
+    color:inherit;
+    text-decoration:none;
+    height:100%;
+    width:100%;
+}
+
 
 

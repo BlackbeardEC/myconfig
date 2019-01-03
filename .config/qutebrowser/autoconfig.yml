@@ -35,6 +35,7 @@ settings:
     '*://*.jquery.com/*': true
     '*://*.jsfiddle.net/*': true
     '*://*.learn.perl.org/*': true
+    '*://*.learnjavascript.online/*': true
     '*://*.libreelec.tv/*': true
     '*://*.libreelec.wiki/*': true
     '*://*.localhost/*': true
