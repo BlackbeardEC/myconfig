@@ -188,7 +188,9 @@ set tabstop=4
 
 " Linebreak on 500 characters
 set lbr
-set tw=500
+set tw=0
+set nolist  " list disables linebreak"
+set wrapmargin=0
 
 set ai "Auto indent
 set si "Smart indent
@@ -499,6 +501,7 @@ Plugin 'vim-perl/vim-perl'
 Plugin 'xuhdev/SingleCompile'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'skammer/vim-css-color'
 
 
 " All of your Plugins must be added before the following line
@@ -528,6 +531,10 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 "let g:UltiSnipsSnippetsDir="~/.vim/my_snippets"
 "let g:UltiSnipsSnippetDirectories=["my_snippets", "UltiSnips"]
+
+""""""""""""""""""""""""""""""""""""""""""
+" vim-css-color highlights hex colors
+let g:cssColorVimDoNotMessMyUpdatetime = 1
 
 """"""""""""""""""""""""""""""""""""""""""
 " let react jsx syntax and indent work for .js also not just .jsx

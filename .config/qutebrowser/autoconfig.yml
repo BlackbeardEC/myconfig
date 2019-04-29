@@ -6,7 +6,9 @@ settings:
   auto_save.session:
     global: true
   content.headers.user_agent:
-    global: null
+    global: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:56.0) Gecko/20100101 Firefox/56.0
+  content.javascript.can_open_tabs_automatically:
+    '*://*.webassign.net/*': true
   content.javascript.enabled:
     '*://*./*': true
     '*://*.192.168.1.1/*': true
@@ -15,11 +17,13 @@ settings:
     '*://*.adssettings.google.com/*': true
     '*://*.angel.co/*': true
     '*://*.angularjs.org/*': true
+    '*://*.answers.unrealengine.com/*': true
     '*://*.app.joinhandshake.com/*': true
     '*://*.boards.4chan.org/*': true
     '*://*.boards.4channel.org/*': true
     '*://*.careers.online.champlain.edu/*': true
     '*://*.catalog.champlain.edu/*': true
+    '*://*.cdnjs.com/*': true
     '*://*.champlain.instructure.com/*': true
     '*://*.champlain.joinhandshake.com/*': true
     '*://*.champlainconnect.org/*': true
@@ -32,9 +36,11 @@ settings:
     '*://*.github.com/*': true
     '*://*.hupden.com/*': true
     '*://*.imgur.com/*': true
+    '*://*.instantwatcher.com/*': true
     '*://*.jquery.com/*': true
     '*://*.jsfiddle.net/*': true
     '*://*.learn.perl.org/*': true
+    '*://*.learning.oreilly.com/*': true
     '*://*.learnjavascript.online/*': true
     '*://*.libreelec.tv/*': true
     '*://*.libreelec.wiki/*': true
@@ -51,8 +57,10 @@ settings:
     '*://*.pay.ebay.com/*': true
     '*://*.paypath.touchnet.net/*': true
     '*://*.playrust.io/*': true
+    '*://*.plnkr.co/*': true
     '*://*.promotions.newegg.com/*': true
     '*://*.proquest-safaribooksonline-com.cobalt.champlain.edu/*': true
+    '*://*.react.semantic-ui.com/*': true
     '*://*.redirectdetective.com/*': true
     '*://*.regexr.com/*': true
     '*://*.rs401.com/*': true
@@ -68,7 +76,9 @@ settings:
     '*://*.vcenter.champlain.edu/*': true
     '*://*.vi.stackexchange.com/*': true
     '*://*.vim.wikia.com/*': true
+    '*://*.vpscp.alpharacks.com/*': true
     '*://*.webadvisor3.champlain.edu/*': true
+    '*://*.webassign.net/*': true
     '*://*.www.120ml.co/*': true
     '*://*.www.alpharacks.com/*': true
     '*://*.www.amazon.com/*': true
@@ -94,21 +104,24 @@ settings:
     '*://*.www.netflix.com/*': true
     '*://*.www.nvidia.com/*': true
     '*://*.www.paypal.com/*': true
+    '*://*.www.pbs.org/*': true
+    '*://*.www.phrases.org.uk/*': true
     '*://*.www.reddit.com/*': true
     '*://*.www.rustafied.com/*': true
+    '*://*.www.safaribooksonline.com/*': true
     '*://*.www.shortcutfoo.com/*': true
     '*://*.www.sirver.net/*': true
     '*://*.www.twitch.tv/*': true
     '*://*.www.udemy.com/*': true
     '*://*.www.w3schools.com/*': true
     '*://*.www.washtrust.com/*': true
+    '*://*.www.webassign.net/*': true
     '*://*.www.youtube.com/*': true
   content.plugins:
     global: true
   downloads.remove_finished:
     global: 2
   qt.args:
-    global:
-    - ppapi-widevine-path=/usr/lib64/qt5/plugins/ppapi/libwidevinecdmadapter.so
+    global: []
   tabs.select_on_remove:
     global: last-used

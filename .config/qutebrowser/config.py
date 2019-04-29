@@ -1034,6 +1034,10 @@ c.downloads.position = 'top'
 ## Type: Bool
 # c.input.insert_mode.plugins = False
 
+######### Seems like a good spot to add this
+# trying to stop auto leaving insert mode in google docs
+c.input.insert_mode.leave_on_load = False
+
 ## Include hyperlinks in the keyboard focus chain when tabbing.
 ## Type: Bool
 # c.input.links_included_in_focus_chain = True

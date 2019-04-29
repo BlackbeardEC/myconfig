@@ -9,7 +9,7 @@ super + Return
 # program launcher
 super + @space
     /home/blackbeard/.local/bin/dmen.sh
-	#dmenu_run -i -l 10 -nb '#011627' -nf '#e63d14' -sf '#011627' -sb '#e63d14' -fn 'source code pro:size=10'
+    # dmenu_run -i -l 10 -nb '#011627' -nf '#e63d14' -sf '#011627' -sb '#e63d14' -fn 'source code pro:size=10'
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -137,6 +137,10 @@ Print
 super + Print
   sleep 0.2; scrot -s 'Selection-%Y-%m-%d-%T_$wx$h_scrot.png' -e 'mv $f ~/media/pics/screens/'
 
+# map super + z to take a selection screen shot and put it in /tmp and show it with feh
+super + z
+  sleep 0.2; scrot -s 'Selection-%Y-%m-%d-%T_$wx$h_scrot.png' -e 'mv $f /tmp/ && feh /tmp/$f'
+
 
 # spawn empty node
 # bspc node @/ -p east -i
@@ -173,3 +177,36 @@ alt + p
 ctrl + alt + m
     ~/.scripts/rust_auto_craft
 
+# and my sell metal for scrap script
+ctrl + alt + n
+    ~/.scripts/rust_sell_metal
+
+# make any window a scratch pad and cycle through them
+super + p
+	id=$(bspc query -N -n "focused");\
+	if [ -n "$id" ];then \
+		xprop -id $id -f _SCRATCH 32ii -set _SCRATCH $(date +%s,%N);\
+		bspc node -t "floating";\
+		xdotool windowunmap $id;\
+	fi
+
+# cycle through the scratch pads
+super + shift + p
+	i=$(bspc query -N -n "focused.floating");\
+	if [ -n "$i" ];then \
+		xprop -id $i -f _SCRATCH 32ii -set _SCRATCH $(date +%s,%N);\
+		xdotool windowunmap $i;\
+	else;\
+		i=$(for w in $(xwininfo -root -children | grep -e "^\s*0x[0-9a-f]\+" -o);do \
+			t=$(xprop -id $w _SCRATCH | grep ' = \(.*\)');\
+			if [ -n "$t" ];then \
+				echo $t $w;\
+			fi;\
+		done|sort -n|head -n1|cut -d" " -f 5);\
+		if [ -n "$i" ];then \
+			xprop -id $i -remove _SCRATCH;\
+			bspc rule -a \* state=floating center=on --one-shot;\
+			xdotool windowmap $i;\
+			bspc node -f $i;\
+		fi;\
+	fi

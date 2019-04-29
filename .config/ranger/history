@@ -38,3 +38,6 @@ bulkrename
 help
 mkdir tmp
 rename rc.conf.old
+echo "test"
+echo $(du -sh)
+mkdir modern_portfolio

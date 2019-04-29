@@ -3,14 +3,23 @@
     --fg:#94bbbc;
     --fg-dark:#678283;
 }
+html {
+  background: url('../../../wall.png') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  color:var(--fg);
+  overflow:hidden;
+}
 
 body{
-    overflow:hidden;
-    background-color:var(--bg);
-    color:var(--fg);
-    background-image:url('../../../wall.png');
-    background-size:cover;
-    background-repeat:no-repeat;
+    /* overflow:hidden; */
+    /* background-color:var(--bg); */
+    /* color:var(--fg); */
+    /* background-image:url('../../../wall.png'); */
+    /* background-size:cover; */
+    /* background-repeat:no-repeat; */
 }
 
 #container a {
@@ -46,24 +55,25 @@ body{
     vertical-align:middle;
     display: inline-block;
     justify-content: center;
-    -moz-transition:height .25s ease-in-out;
-    -webkit-transition:height .25s ease-in-out;
-    -o-transition:height .25s ease-in-out;
-    transition:height .25s ease-in-out;
+    transition:visibility 2s ease-in;
 }
 
 .sqr li{
-    display:none;
+    display:block;
+    visibility:hidden;
     font-family: 'Inconsolata', monospace;
 }
 
 .sqr:hover{
     height:100%;
     font-family: 'Inconsolata', monospace;
+    transition:height 2s ease-in;
 }
 
 .sqr:hover li{
     display:block;
+    visibility:visible;
+    transition:visibility 2s ease-in;
 }
 
 #container span {
