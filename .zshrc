@@ -63,7 +63,13 @@ source $ZSH/oh-my-zsh.sh
 export ANDROID_HOME=$HOME/Android/Sdk
 export GOPATH=/home/blackbeard/code/go
 
-PATH=:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:~/.scripts:~/.config/bspwm:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$GOPATH/bin:/home/blackbeard/.local/bin:/home/blackbeard/.local/bin/colors:/home/blackbeard/perl5/bin
+PATH=:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:~/.scripts:~/.config/bspwm:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$GOPATH/bin:/home/blackbeard/.local/bin:/home/blackbeard/.local/bin/colors:/home/blackbeard/perl5/bin:/home/blackbeard/.gem/ruby/2.6.0/bin
+
+# Trying to add back these perl paths and variables to fix problems
+PERL5LIB="/home/blackbeard/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/blackbeard/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/blackbeard/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/blackbeard/perl5"; export PERL_MM_OPT;
 
 export PATH;
 
@@ -113,7 +119,7 @@ alias mkdir="mkdir -pv"
 #export LANGUAGE=en_US.UTF-8
 
 export EDITOR=/usr/bin/vim
-export BROWSER=/usr/bin/qutebrowser
+export BROWSER=/usr/bin/firefox
 
 
 #PATH="/home/blackbeard/perl5/bin${PATH:+:${PATH}}"; export PATH;
@@ -130,6 +136,7 @@ alias config='/usr/bin/git --git-dir=/home/blackbeard/.myconfig/ --work-tree=/ho
 
 #vi-mode
 bindkey -v
+bindkey '^R' history-incremental-search-backward
 
 # Trying to fix the way zsh searches history with up/down, the way it does without the vi-mode above
 
@@ -147,6 +154,4 @@ bindkey -M viins '^[[A' history-beginning-search-backward-end \
                  '^[[B' history-beginning-search-forward-end \
                  '^[OB' history-beginning-search-forward-end
 
-# Trying to fix rust game with nvidia vulkan
-export VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/nvidia_icd.json
 

@@ -71,6 +71,7 @@ nmap <leader>w :w!<cr>
 
 " Mouse support
 set mouse=a
+set ttymouse=sgr
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
@@ -196,6 +197,7 @@ set ai "Auto indent
 set si "Smart indent
 set wrap "Wrap lines
 autocmd Filetype javascript setlocal ts=2 sw=2 expandtab
+autocmd Filetype scss setlocal ts=2 sw=2 expandtab
 autocmd Filetype python setlocal ts=4 sw=4 expandtab
 
 
@@ -502,6 +504,7 @@ Plugin 'xuhdev/SingleCompile'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'skammer/vim-css-color'
+Plugin 'vim-scripts/DoxygenToolkit.vim'
 
 
 " All of your Plugins must be added before the following line
@@ -550,6 +553,9 @@ let g:javascript_plugin_jsdoc = 1
 " set indent-guide enabled
 " IndentGuidesEnable
 map <leader>i :IndentGuidesToggle<cr>
+
+""""""""""""""""""""""""""""""""""""""""""
+" Doxygen Tool Kit
 
 
 """"""""""""""""""""""""""""""""""""""""""
@@ -621,6 +627,7 @@ augroup END
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 autocmd BufWritePre * %s/\s\+$//e
 autocmd BufWritePre *.cpp :normal mkgg=G`k
+autocmd BufWritePre *.h :normal mkgg=G`k
 
 " Going through a vim-scripting tutorial
 " ctrl-d will delete line in insert mode
@@ -635,5 +642,9 @@ nnoremap <c-u> bveU
 vnoremap <C-c> "+y
 map <C-p> "+P
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" F6 will make a line separator
+"nnoremap <F6> 80I#<Esc>0R<C-r>=strftime("%c")<CR><Esc>o
+nnoremap <F6> 80I#<Esc>o<CR>
 
 

@@ -1,4 +1,4 @@
-exec mpd &
+#exec mpd &
 feh --bg-scale ~/wall.png &
 
 ###############
