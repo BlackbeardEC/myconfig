@@ -14,7 +14,7 @@ FPS=30                          # Frames Per Second [12-60]
 PRESET="ultrafast"              # Default "ultrafast" (x264 --help for preset list)
 CRF=10                          # Constant Rate Factor [0-51] (Lower is better quality)
 QMAX=10                         # Maximum Quantization [1-31] (Lower is better quality)
-FULLSCREEN="1366x768"          # Set your desktop resolution
+FULLSCREEN="1920x1080"          # Set your desktop resolution
 #DISPLAY=:0.1                    # Set to record specific monitor 0.0 or 0.1?
 DELAY=2                         # Delay before recording begins (seconds)
 SOUND=false                  # Record with sound (Requires ALSA Loopback device); see http://pastebin.com/qXWFS81k
@@ -22,8 +22,8 @@ LOOPBACK="0"                  # Set loopback device
 HELP=false
 ERROR=0
 
-OUTPUT="/home/lulz/media/vids/out.webm"
-TMP="/home/lulz/media/vids/out.mkv"
+OUTPUT="/tmp/out.webm"
+TMP="/tmp/out.mkv"
 KEEP=false                      # Keep original mkv file after conversion
 
 OPTS=`getopt -o hwm:t:o:f:c:p:q:ksd: --long help,window,margin:,title:,output:,fps:,crf:,preset:,qmax:,keep,sound,delay: -- "$@"`

@@ -13,8 +13,6 @@ mkdir react-boilerplate2
 mkdir react-boilerplate3
 rename js-todo-list
 mkdir certificates
-extract %f
-shell extract %f
 shell extract MSEdge.Win10.RS2.VirtualBox.zip
 
 shell 
@@ -30,7 +28,6 @@ rename sisters-1999.jpg
 rename sisters-1975.jpg
 mkdir 1984
 open_with 
-delete
 rename adventure-time11.jpg
 mkdir mchax
 rename color_skull_4jJ.png
@@ -41,3 +38,7 @@ rename rc.conf.old
 echo "test"
 echo $(du -sh)
 mkdir modern_portfolio
+rename customers
+extract %f
+shell extract %f
+delete

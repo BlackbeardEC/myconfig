@@ -8,14 +8,18 @@ bspc monitor -d 1 2 3 4 5 6 7 8 9 10
 #FB=`xrdb -query | grep -E "^\*color7" | cut -d':' -f2 | sed -e 's/^[[:space:]]*//'`
 #NB=`xrdb -query | grep -E "^\*color0" | cut -d':' -f2 | sed -e 's/^[[:space:]]*//'`
 
-bspc config border_width         2
-bspc config window_gap          12
+bspc config border_width        2
+bspc config window_gap          18
+#bspc config bottom_padding      0
+#bspc config top_padding         30
+#bspc config right_padding       20
+#bspc config left_padding        20
 
 #bspc config focused_border_color $FB
 #bspc config normal_border_color $NB
 bspc config normal_border_color "$color0"
 bspc config active_border_color "$color2"
-bspc config focused_border_color "$color7"
+bspc config focused_border_color "$color3"
 
 bspc config split_ratio          0.5
 bspc config borderless_monocle   true
@@ -34,6 +38,10 @@ bspc rule -a feh state=floating
 bspc rule -a Galculator state=floating
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
+
+# Scratch pad
+#bspc rule -a scratchpad sticky=on state=floating hidden=on
+#xst -c scratchpad -e ~/.local/bin/scratch &
 
 # moved polybar startup to ../polybar/launch.sh
 # as suggested in polybar wiki
@@ -62,9 +70,17 @@ else
     dunst &
 fi
 
+# Compton
+# if pgrep -x "compton" > /dev/null
+# then
+#     killall compton && compton -b --unredir-if-possible &
+# else
+#     compton -b --unredir-if-possible &
+# fi
+
 xrdb ~/.Xdefaults
 
 
 #compton -b
-compton -b --unredir-if-possible
+#compton -b --unredir-if-possible
 

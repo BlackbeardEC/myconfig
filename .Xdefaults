@@ -1,23 +1,30 @@
 
-URxvt.perl-ext-common: default,matcher
-!URxvt.url-launcher: /bin/firefox
-URxvt.url-launcher: /usr/bin/qutebrowser
+URxvt.perl-ext-common: default,matcher,vtwheel
+URxvt.url-launcher: /bin/firefox
+!URxvt.url-launcher: /usr/bin/qutebrowser
 URxvt.matcher.button: 1
 ! chdir to always open in ~ in case I startx from somewhere else
 URxvt.chdir: /home/blackbeard/
 
-!URxvt*font: xft:Inconsolata Nerd Font Mono:size=14
 URxvt.font: xft:DejaVuSansMono Nerd Font Mono:style=Book:size=12
-!URxvt.font: xft:Inconsolata Nerd Font Mono:style=Medium:size=14,xft:DejaVu Sans Mono:style=Book:size=14,xft:SauceCodePro Nerd Font Mono:style=Regular:size=14,xft:Noto Color Emoji:style=Regular:size=14,xft:NotoEmoji Nerd Font Mono:style=Book:size=14
-!URxvt.font: xft:DejaVu Sans Mono, xft:Noto Color Emoji, xft:NotoEmoji Nerd Font Mono
 URxvt.boldFont: xft:DejaVu Sans Mono:style=Bold:size=14,xft:SauceCodePro Nerd Font Mono:style=Bold:size=14
 
 URxvt.fading: 0
 URxvt.scrollBar: None
+URxvt*scrollBar: false
+URxvt*scrollBar_right: false
+URxvt*scrollBar_floating: false
 !URxvt.termName: rxvt-256color
 URxvt.termName: rxvt-unicode-256color
 URxvt.internalBorder: 2
 !URxvt.letterSpace: 3
+
+!! URXVT transparency
+! URxvt.depth: 32
+! URxvt.background: rgba:0000/0000/0200/d800
+! URxvt.borderColor: rgba:0000/0000/0200/d800
+! urxvt*transparent: true
+! urxvt*shading: 10
 
 !!! ST !!!
 ! These options only take effect on startup.

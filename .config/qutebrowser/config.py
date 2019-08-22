@@ -365,17 +365,17 @@ c.backend = 'webengine'
 ##################################################
 # This seems like a good place to group these... #
 
-c.colors.tabs.odd.bg = xresources['*.background']
-c.colors.tabs.odd.fg = xresources['*.foreground']
-c.colors.tabs.selected.even.fg = xresources['*.background']
-c.colors.tabs.selected.even.bg = xresources['*.foreground']
-c.colors.tabs.selected.odd.fg = xresources['*.background']
-c.colors.tabs.selected.odd.bg = xresources['*.foreground']
-c.colors.tabs.even.fg = xresources['*.foreground']
-c.colors.tabs.even.bg = xresources['*.background']
-c.colors.tabs.bar.bg = xresources['*.background']
-c.colors.statusbar.normal.bg = xresources['*.background']
-c.colors.statusbar.normal.fg = xresources['*.foreground']
+c.colors.tabs.odd.bg = xresources['*background']
+c.colors.tabs.odd.fg = xresources['*color4']
+c.colors.tabs.selected.even.fg = xresources['*background']
+c.colors.tabs.selected.even.bg = xresources['*color4']
+c.colors.tabs.selected.odd.fg = xresources['*background']
+c.colors.tabs.selected.odd.bg = xresources['*color4']
+c.colors.tabs.even.fg = xresources['*color4']
+c.colors.tabs.even.bg = xresources['*background']
+c.colors.tabs.bar.bg = xresources['*background']
+c.colors.statusbar.normal.bg = xresources['*background']
+c.colors.statusbar.normal.fg = xresources['*color4']
 
 ## Background color of unselected odd tabs.
 ## Type: QtColor

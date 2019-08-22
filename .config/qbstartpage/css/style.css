@@ -48,14 +48,16 @@ body{
     padding-top:10px;
     background-color:var(--bg);
     width:150px;
-    height:150px;
+    /* height:150px; */
+    max-height: 150px;
     margin:3px 3px;
     border:5px solid var(--fg-dark);
     overflow:hidden;
     vertical-align:middle;
     display: inline-block;
     justify-content: center;
-    transition:visibility 2s ease-in;
+    transition-timing-function: ease;
+    transition:all 1.0s ease-in;
 }
 
 .sqr li{
@@ -67,13 +69,14 @@ body{
 .sqr:hover{
     height:100%;
     font-family: 'Inconsolata', monospace;
-    transition:height 2s ease-in;
+    /* transition:height 2s ease-out; */
+    max-height: 1000px;
 }
 
 .sqr:hover li{
     display:block;
     visibility:visible;
-    transition:visibility 2s ease-in;
+    transition:visibility 1.1s ease-in;
 }
 
 #container span {

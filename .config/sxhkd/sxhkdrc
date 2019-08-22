@@ -3,8 +3,9 @@
 #
 
 # terminal emulator
+# I switch between xst and urxvt
 super + Return
-    xst
+    urxvt
 
 # program launcher
 super + @space
@@ -16,14 +17,28 @@ super + Escape
 	pkill -USR1 -x sxhkd
 
 # volume
-super + F12
-  amixer -q sset Master 5%+
+# Old volume
+# super + F12
+#   amixer -q sset Master 5%+
+#
+# super + F11
+#   amixer -q sset Master 5%-
+#
+# super + F10
+#   amixer -q set Master toggle
+#
+# New multimedia keys
+#
+XF86Audio{Mute,RaiseVolume,LowerVolume}
+    amixer -q sset Master {toggle,5%+,5%-}
 
-super + F11
-  amixer -q sset Master 5%-
+XF86Audio{Prev,Next,Stop,Play}
+	mpc -q {prev,next,stop,toggle}
 
-super + F10
-  amixer -q set Master toggle
+# open ncmpcpp
+super + n
+    mpc volume 4; urxvt -e ncmpcpp
+
 #
 # bspwm hotkeys
 #
@@ -130,6 +145,14 @@ super + alt + shift + {h,j,k,l}
 super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
 
+# Rotate all windows {counter-}clockwise by 90 degrees.
+super + {_,shift + }r
+	bspc node @/ --rotate {90,-90}
+
+# Dynamic gaps.
+super + shift + bracket{left,right}
+	bspc config -d focused window_gap "$(($(bspc config -d focused window_gap) {-,+} 5 ))"
+
 # map printscrn to scrot
 Print
   scrot -q 75 '%Y-%m-%d-%T_$wx$h_scrot.png' -e 'mv $f ~/media/pics/screens/'
@@ -155,7 +178,9 @@ super + shift + ctrl + c
 #
 # Toggle scratch pad
 #
-#alt + s
+alt + s
+    id=$(cat /tmp/scratchid);\
+    bspc node $id --flag hidden;bspc node -f $id
 
 # Run dmenuarchwiki.sh from Luke Smith github
 super + a
@@ -181,32 +206,42 @@ ctrl + alt + m
 ctrl + alt + n
     ~/.scripts/rust_sell_metal
 
-# make any window a scratch pad and cycle through them
-super + p
-	id=$(bspc query -N -n "focused");\
-	if [ -n "$id" ];then \
-		xprop -id $id -f _SCRATCH 32ii -set _SCRATCH $(date +%s,%N);\
-		bspc node -t "floating";\
-		xdotool windowunmap $id;\
-	fi
+# setting up i3lock
+ctrl + alt + l
+    i3lock -f -i ~/wall.test.png
 
-# cycle through the scratch pads
-super + shift + p
-	i=$(bspc query -N -n "focused.floating");\
-	if [ -n "$i" ];then \
-		xprop -id $i -f _SCRATCH 32ii -set _SCRATCH $(date +%s,%N);\
-		xdotool windowunmap $i;\
-	else;\
-		i=$(for w in $(xwininfo -root -children | grep -e "^\s*0x[0-9a-f]\+" -o);do \
-			t=$(xprop -id $w _SCRATCH | grep ' = \(.*\)');\
-			if [ -n "$t" ];then \
-				echo $t $w;\
-			fi;\
-		done|sort -n|head -n1|cut -d" " -f 5);\
-		if [ -n "$i" ];then \
-			xprop -id $i -remove _SCRATCH;\
-			bspc rule -a \* state=floating center=on --one-shot;\
-			xdotool windowmap $i;\
-			bspc node -f $i;\
-		fi;\
-	fi
+#this scratchpad stuff isn't working
+# make any window a scratch pad and cycle through them
+# super + p
+# 	id=$(bspc query -N -n "focused");\
+# 	if [ -n "$id" ];then \
+# 		xprop -id $id -f _SCRATCH 32ii -set _SCRATCH $(date +%s,%N);\
+# 		bspc node -t "floating";\
+# 		xdotool windowunmap $id;\
+# 	fi
+#
+# # cycle through the scratch pads
+# super + shift + p
+# 	i=$(bspc query -N -n "focused.floating");\
+# 	if [ -n "$i" ];then \
+# 		xprop -id $i -f _SCRATCH 32ii -set _SCRATCH $(date +%s,%N);\
+# 		xdotool windowunmap $i;\
+# 	else;\
+# 		i=$(for w in $(xwininfo -root -children | grep -e "^\s*0x[0-9a-f]\+" -o);do \
+# 			t=$(xprop -id $w _SCRATCH | grep ' = \(.*\)');\
+# 			if [ -n "$t" ];then \
+# 				echo $t $w;\
+# 			fi;\
+# 		done|sort -n|head -n1|cut -d" " -f 5);\
+# 		if [ -n "$i" ];then \
+# 			xprop -id $i -remove _SCRATCH;\
+# 			bspc rule -a \* state=floating center=on --one-shot;\
+# 			xdotool windowmap $i;\
+# 			bspc node -f $i;\
+# 		fi;\
+# 	fi
+
+
+shift + alt + x
+    pkill -f 'x11grab'
+

@@ -1,4 +1,5 @@
 #exec mpd &
+mopidy &
 feh --bg-scale ~/wall.png &
 
 ###############
@@ -17,13 +18,14 @@ sxhkd &
 
 ###############
 ## Restore previous pywal colors
-exec wal -R &
+#exec wal -R &
 
 exec bspwm -c /home/blackbeard/.config/bspwm/bspwmrc
 
 ################
 ## DWM
-#make -C /home/blackbeard/suckless/dwm
-#exec /home/blackbeard/suckless/dwmstatus/dwmstatus &
-#exec /home/blackbeard/suckless/dwm/dwm
+# make -C /home/blackbeard/pkgs/suckless/luke/dwm
+# make -C /home/blackbeard/pkgs/suckless/slstatus
+# exec /home/blackbeard/pkgs/suckless/slstatus/slstatus &
+# exec /home/blackbeard/pkgs/suckless/luke/dwm/dwm
 

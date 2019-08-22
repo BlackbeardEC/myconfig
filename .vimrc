@@ -46,6 +46,9 @@
 " Sets how many lines of history VIM has to remember
 set history=500
 
+" Set color column
+set colorcolumn=80
+
 " Set splits to be to the right and bottom
 set splitbelow
 set splitright
@@ -149,7 +152,9 @@ endif
 
 " Add a bit extra margin to the left
 set foldcolumn=1
-
+set foldmethod=manual
+set foldlevel=1
+set foldclose=all
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
@@ -431,6 +436,8 @@ set guioptions-=L
 " Colorscheme
 set background=dark
 colorscheme SlateDark
+" Moving wal below the plugin line to see if that fixes things
+"colorscheme wal
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Fast editing and reloading of vimrc configs
@@ -496,15 +503,13 @@ Plugin 'mxw/vim-jsx'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'tpope/vim-surround'
-Plugin 'xolox/vim-misc'
-Plugin 'xolox/vim-notes'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'vim-perl/vim-perl'
-Plugin 'xuhdev/SingleCompile'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'skammer/vim-css-color'
 Plugin 'vim-scripts/DoxygenToolkit.vim'
+Plugin 'rdnetto/YCM-Generator'
+Plugin 'dylanaraps/wal.vim'
 
 
 " All of your Plugins must be added before the following line
@@ -522,6 +527,7 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
+"colorscheme wal
 " ultisnip
 " Trigger configuration. Do not use <tab> if you use YouCompleteMe
 let g:UltiSnipsExpandTrigger="<C-e>"
@@ -566,9 +572,15 @@ map <leader>i :IndentGuidesToggle<cr>
 " ycm extra to finx c c++ error
 " let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py'
+" Auto close 'hint' window after leave insert mode
+let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_collect_identifiers_from_tags_files = 1
 " Apply YCM FixIt
 map <F9> :YcmCompleter FixIt<CR>
-""""""""""""""""""""""""""""""""""""""""""
+" YCM highlight colors
+highlight YcmErrorLine guibg=#ffffcc
+highlight YcmWarningLine guibg=#ffffcc
+"""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""
 " Airline Status
@@ -614,7 +626,8 @@ nnoremap <F10> :SCCompileRun<cr>
 "     :call setpos('.', save_pos)
 " endfunction
 augroup cppgroup
-    autocmd filetype cpp nnoremap <Leader>o :w <CR>:!g++ % -o %:r && ./%:r<CR>
+    autocmd filetype cpp nnoremap <Leader>o :w <CR>:!g++ % -o %:r -std=c++14 && ./%:r<CR>
+    autocmd filetype cc nnoremap <Leader>o :w <CR>:!g++ % -o %:r -std=c++14 && ./%:r<CR>
     " auto fix indents when save
     " autocmd BufWritePre *.cpp :normal mkgg=G`k
     " autocmd BufWritePre *.cpp call Fixcpp()
@@ -627,6 +640,7 @@ augroup END
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 autocmd BufWritePre * %s/\s\+$//e
 autocmd BufWritePre *.cpp :normal mkgg=G`k
+autocmd BufWritePre *.cc :normal mkgg=G`k
 autocmd BufWritePre *.h :normal mkgg=G`k
 
 " Going through a vim-scripting tutorial
