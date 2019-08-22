@@ -1,0 +1,145 @@
+
+[bar/top]
+monitor = DisplayPort-2
+width = 100%
+height = 27
+offset-x = 0
+offset-y = 0
+dock = false
+
+;background = ${xrdb:color0}
+;foreground = ${xrdb:color3}
+background = ${xrdb:background}
+foreground = ${xrdb:color6}
+
+;line-color = ${bar/bottom.background}
+linecolor = ${xrdb:color12}
+line-size = 16
+
+spacing = 2
+padding-right = 2
+padding-left = 2
+module-margin = 2
+
+;font-0 = NotoSans-Regular:size=8;-1
+font-0 = NotoSans Nerd Font:style=Regular:size=10;-1
+font-1 = MaterialIcons:size=8;0
+font-2 = Termsynu:size=10:antialias=false;-2
+font-3 = "Font Awesome 5 Free:style=Regular:size=12;0"
+font-4 = NotoSans Nerd Font:style=Regular:size=8;0
+
+; Prefer fixed center position for the `modules-center` block
+; When false, the center position will be based on the size of the other blocks.
+fixed-center = true
+modules-left = mpd-vol mpd
+modules-center = bspwm-tmp
+modules-right =wttr cpu-new memory-new filesystem volume popup-calendar
+
+tray-position = right
+tray-maxsize = 18
+
+override-redirect = true
+wm-restack = bspwm
+
+
+[module/mpd-vol]
+type = custom/script
+format = <label>
+exec = mpc volume | awk -F " " '{print $2}'
+label =  %output%
+scroll-up = mpc volume +5
+scroll-down = mpc volume -5
+
+[module/mpd]
+type = internal/mpd
+;format-online = <icon-prev> <icon-stop> <toggle> <icon-next>  <icon-repeat> <icon-random>  <bar-progress> <label-time>  <label-song>
+format-online = <icon-prev> <icon-stop> <toggle> <icon-next>  <icon-repeat> <icon-random> <label-song>
+format-offline = <label-offline>
+label-offline = mpd is off
+
+icon-play = 
+icon-pause = 
+icon-stop = 
+icon-prev = 
+icon-next = 
+icon-random = 
+icon-repeat = 
+
+toggle-on-foreground =
+toggle-off-foreground = #55
+
+bar-progress-width = 45
+bar-progress-format = %{A4:mpdseek+2: A5:mpdseek-2:}%fill%%indicator%%empty%%{A A}
+bar-progress-indicator = 
+bar-progress-indicator-foreground = #ff
+bar-progress-indicator-font = 3
+bar-progress-fill = ─
+bar-progress-fill-foreground = #bb
+bar-progress-fill-font = 3
+bar-progress-empty = ─
+bar-progress-empty-font = 3
+bar-progress-empty-foreground = #44
+
+[module/bspwm-tmp]
+type = internal/bspwm
+format = <label-state>
+
+label-active = 
+label-active-padding = 1
+label-occupied = 
+label-occupied-padding = 1
+label-empty = 
+label-empty-padding = 1
+
+[module/wttr]
+type = custom/script
+exec = ~/.scripts/weather
+interval = 30
+click-left = $BROWSER wttr.in
+label-active-font = 7
+
+[module/cpu-new]
+type = internal/cpu
+interval = 2
+format = <label>
+format-foreground = ${xrdb:color3}
+label = ⚞  %percentage%%
+
+[module/memory-new]
+type = internal/memory
+format = <label>
+format-foreground = ${xrdb:color3}
+label = %{A1:~/.scripts/topmem:}  %gb_used%⚟%{A}
+
+[module/filesystem]
+type = internal/fs
+interval = 25
+
+mount-0 = /
+
+label-mounted = %mountpoint% :  %percentage_used%% - %free%
+
+
+[module/volume]
+type = internal/pulseaudio
+speaker-mixer = Speaker
+headphone-mixer = Headphone
+headphone-id = 9
+
+format-volume = <ramp-volume> <label-volume>
+label-muted =   muted
+label-muted-foreground = #66
+
+ramp-volume-0 =
+ramp-volume-1 =
+ramp-volume-2 =
+ramp-volume-3 =
+
+
+[module/popup-calendar]
+type = custom/script
+exec = ~/.config/polybar/scripts/popcal
+interval = 25
+click-left = ~/.config/polybar/scripts/popcal --popup
+
+

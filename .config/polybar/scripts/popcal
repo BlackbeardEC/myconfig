@@ -1,0 +1,12 @@
+#!/bin/bash
+
+DATE="$(date +"%a %d-%m-%Y %%{F#fff}%I:%M%%{F-}")"
+
+case "$1" in
+    --popup)
+        notify-send "$(cal)"
+        ;;
+    *)
+        echo "$DATE"
+        ;;
+esac
