@@ -115,7 +115,7 @@ $.getJSON(hn_url, function(adata) {
         'https://hacker-news.firebaseio.com/v0/item/' + data + '.json',
         function(item) {
           items.push(item);
-          console.log(item.url);
+          // console.log(item.url);
           var hnli = document.createElement('li');
           var hnlink = document.createElement('a');
           hnlink.setAttribute('href', item.url);
@@ -132,16 +132,16 @@ $.getJSON(hn_url, function(adata) {
   });
 });
 
-function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
-}
-
-async function demo() {
-  await sleep(2000);
-  news.appendChild(add_news);
-}
-
-demo();
+// function sleep(ms) {
+//   return new Promise(resolve => setTimeout(resolve, ms));
+// }
+//
+// async function demo() {
+//   await sleep(2000);
+//   news.appendChild(add_news);
+// }
+//
+// demo();
 
 // My links
 var output = document.getElementById('container');

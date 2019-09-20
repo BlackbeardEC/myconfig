@@ -179,8 +179,7 @@ super + shift + ctrl + c
 # Toggle scratch pad
 #
 alt + s
-    id=$(cat /tmp/scratchid);\
-    bspc node $id --flag hidden;bspc node -f $id
+    /home/blackbeard/.local/bin/scratch
 
 # Run dmenuarchwiki.sh from Luke Smith github
 super + a

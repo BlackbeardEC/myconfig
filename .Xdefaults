@@ -1,5 +1,5 @@
 
-URxvt.perl-ext-common: default,matcher,vtwheel
+URxvt.perl-ext-common: default,matcher,vtwheel,font-size
 URxvt.url-launcher: /bin/firefox
 !URxvt.url-launcher: /usr/bin/qutebrowser
 URxvt.matcher.button: 1
@@ -19,12 +19,28 @@ URxvt.termName: rxvt-unicode-256color
 URxvt.internalBorder: 2
 !URxvt.letterSpace: 3
 
+! font-size binds
+URxvt.keysym.C-Up:     font-size:increase
+URxvt.keysym.C-Down:   font-size:decrease
+URxvt.keysym.C-S-Up:   font-size:incglobal
+URxvt.keysym.C-S-Down: font-size:decglobal
+URxvt.keysym.C-equal:  font-size:reset
+URxvt.keysym.C-slash:  font-size:show
+
 !! URXVT transparency
 ! URxvt.depth: 32
 ! URxvt.background: rgba:0000/0000/0200/d800
 ! URxvt.borderColor: rgba:0000/0000/0200/d800
 ! urxvt*transparent: true
 ! urxvt*shading: 10
+
+!!! DWM COLORS !!!
+dwm.normbordercolor: #545466
+dwm.normbgcolor: #0E101C
+dwm.normfgcolor: #8c5760
+dwm.selbordercolor: #8c5760
+dwm.selbgcolor: #0E101C
+dwm.selfgcolor: #8c5760
 
 !!! ST !!!
 ! These options only take effect on startup.

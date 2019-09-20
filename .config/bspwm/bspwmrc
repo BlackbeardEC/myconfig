@@ -42,6 +42,7 @@ bspc rule -a Screenkey manage=off
 # Scratch pad
 #bspc rule -a scratchpad sticky=on state=floating hidden=on
 #xst -c scratchpad -e ~/.local/bin/scratch &
+bspc rule -a URxvt:scratchy sticky=on state=floating rectangle=1280x720+320+180
 
 # moved polybar startup to ../polybar/launch.sh
 # as suggested in polybar wiki

@@ -9,6 +9,7 @@ feh --bg-scale ~/wall.png &
 ###############
 ## BSPWM
 sxhkd &
+exec bspwm -c /home/blackbeard/.config/bspwm/bspwmrc
 
 # moved polybar startup to $HOME/.config/polybar/launch.sh
 # as suggested in polybar wiki and added script to bspwmrc
@@ -20,12 +21,11 @@ sxhkd &
 ## Restore previous pywal colors
 #exec wal -R &
 
-exec bspwm -c /home/blackbeard/.config/bspwm/bspwmrc
 
 ################
 ## DWM
-# make -C /home/blackbeard/pkgs/suckless/luke/dwm
+# make -C /home/blackbeard/pkgs/suckless/dwm
 # make -C /home/blackbeard/pkgs/suckless/slstatus
 # exec /home/blackbeard/pkgs/suckless/slstatus/slstatus &
-# exec /home/blackbeard/pkgs/suckless/luke/dwm/dwm
+# exec /home/blackbeard/pkgs/suckless/dwm/dwm
 
