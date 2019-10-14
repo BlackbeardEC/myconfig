@@ -1,3 +1,5 @@
+!!!!!Colorz!!!!!
+#include "/home/blackbeard/.Xcolors"
 
 URxvt.perl-ext-common: default,matcher,vtwheel,font-size
 URxvt.url-launcher: /bin/firefox
@@ -34,13 +36,15 @@ URxvt.keysym.C-slash:  font-size:show
 ! urxvt*transparent: true
 ! urxvt*shading: 10
 
+background=$(xrdb -query | grep -E "^\*\.background" | cut -d':' -f2 | sed -e 's/^[[:space:]]*//')
 !!! DWM COLORS !!!
-dwm.normbordercolor: #545466
-dwm.normbgcolor: #0E101C
-dwm.normfgcolor: #8c5760
-dwm.selbordercolor: #8c5760
-dwm.selbgcolor: #0E101C
-dwm.selfgcolor: #8c5760
+!!! Moved to ~/.Xcolors from inside the colterm GO program
+! dwm.normbordercolor: #545466
+! dwm.normbgcolor: #0E101C
+! dwm.normfgcolor: #8c5760
+! dwm.selbordercolor: #8c5760
+! dwm.selbgcolor: #0E101C
+! dwm.selfgcolor: #8c5760
 
 !!! ST !!!
 ! These options only take effect on startup.
@@ -67,7 +71,5 @@ st.chscale:           1.0
 ! Kerning / character bounding-box width multiplier
 st.cwscale:           1.1
 ! opacity==255 means what terminal will be not transparent, 0 - fully transparent
-st.opacity:      220
+st.opacity:      255
 
-!!!!!Colorz!!!!!
-#include "/home/blackbeard/.Xcolors"

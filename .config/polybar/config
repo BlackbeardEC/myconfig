@@ -10,7 +10,7 @@ dock = false
 ;background = ${xrdb:color0}
 ;foreground = ${xrdb:color3}
 background = ${xrdb:background}
-foreground = ${xrdb:color6}
+foreground = ${xrdb:foreground}
 
 ;line-color = ${bar/bottom.background}
 linecolor = ${xrdb:color12}

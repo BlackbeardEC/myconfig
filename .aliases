@@ -1,0 +1,84 @@
+alias ls='ls --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
+alias ll='ls -lh --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
+alias la='ls -lha --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
+
+alias zshconfig="vim ~/.zshrc"
+alias ohmyzsh="vim ~/.oh-my-zsh"
+alias l="ls -1sh"
+alias lla="ls -la"
+alias cdc="cd"
+alias netbeans="netbeans -J-Dswing.aatext=true -J-Dawt.useSystemAAFontSettings=on &"
+alias j="jump"
+alias ping="ping -c 5"
+alias clr="clear; echo Currently logged in on $TTY, as $USER in directory $PWD."
+alias path="print -l $path"
+alias mkdir="mkdir -pv"
+alias grep='grep --color=auto'
+alias df='df -h'
+alias du='du -c -h'
+alias openports='ss --all --numeric --processes --ipv4 --ipv6'
+alias calc="galculator &"
+alias v="vim"
+alias poop="systemctl poweroff"
+alias ree="systemctl reboot"
+alias gc="cd ~/.config && l"
+alias beats="mpc volume 4; ncmpcpp"
+
+alias -g gp="| grep -i --color=auto"
+alias -g H='| head'
+alias -g T='| tail'
+alias -g L='| less'
+
+alias config='/usr/bin/git --git-dir=/home/blackbeard/.myconfig/ --work-tree=/home/blackbeard'
+
+# Jack all the things - int0x80
+ippls() { ip -o addr show | grep 'inet ' | awk '{print $2 " " $4}' | sed -e "s/\/[0-9]*$//g"; }
+alias diff='/usr/bin/grc /usr/bin/diff'
+alias gcc='/usr/bin/grc /usr/bin/gcc'
+alias g++='/usr/bin/grc /usr/bin/g++'
+alias netstat='/usr/bin/grc /usr/bin/ss'
+alias ping='/usr/bin/grc /bin/ping'
+alias ps='/usr/bin/grc /bin/ps'
+alias tail='/usr/bin/grc /usr/bin/tail'
+alias sha1="openssl sha1"
+alias md5="openssl md5"
+alias ports="netstat -tulanp"
+#alias ipx="curl -s http://ipinfo.io/ip"
+alias ipx="curl -4 icanhazip.com"
+
+
+mem10(){
+    ps aux --sort=-%mem | awk 'NR<=10{print $2,"\t", $11,"\t", $12}';
+}
+
+# Twily colored man pages
+man() {
+    env \
+        LESS_TERMCAP_mb=$(printf "\e[1;31m") \
+        LESS_TERMCAP_md=$(printf "\e[1;31m") \
+        LESS_TERMCAP_me=$(printf "\e[0m") \
+        LESS_TERMCAP_se=$(printf "\e[0m") \
+        LESS_TERMCAP_so=$(printf "\e[1;40;33m") \
+        LESS_TERMCAP_ue=$(printf "\e[0m") \
+        LESS_TERMCAP_us=$(printf "\e[1;32m") \
+    man "$@"
+}
+
+# create a tmp directory and cd into it
+tmpd() {
+	local dir
+	if [ $# -eq 0 ]; then
+		dir=$(mktemp -d)
+	else
+		dir=$(mktemp -d -t "${1}.XXXXXXXXXX")
+	fi
+	cd "$dir" || exit
+}
+
+# run popcorntime in docker
+ptime(){
+    xhost local:root;
+    docker start popcorntime
+}
+
+

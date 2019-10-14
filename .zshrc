@@ -33,6 +33,7 @@ source $ZSH/oh-my-zsh.sh
 # Trying to fix my paths
 export ANDROID_HOME=$HOME/Android/Sdk
 export GOPATH=/home/blackbeard/code/go
+export GOBIN=/home/blackbeard/code/go/bin
 
 PATH=:/home/blackbeard/.local/bin:/home/blackbeard/.local/bin/colors:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:~/.scripts:~/.config/bspwm:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$GOPATH/bin:/home/blackbeard/perl5/bin:/home/blackbeard/.gem/ruby/2.6.0/bin
 
@@ -45,7 +46,7 @@ PERL_MM_OPT="INSTALL_BASE=/home/blackbeard/perl5"; export PERL_MM_OPT;
 export PATH;
 
 # More Twily stuff -- Dircolors
-LS_COLORS='rs=0:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:tw=30;42:ow=34;42:st=37;44:ex=01;32:';
+LS_COLORS='rs=0:di=01;36:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:tw=30;42:ow=34;42:st=37;44:ex=01;32:';
 export LS_COLORS
 
 export EDITOR=/usr/bin/vim

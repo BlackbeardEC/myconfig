@@ -3,29 +3,14 @@ mopidy &
 feh --bg-scale ~/wall.png &
 
 ###############
-## iw-gaps
-#exec i3
-
-###############
 ## BSPWM
 sxhkd &
 exec bspwm -c /home/blackbeard/.config/bspwm/bspwmrc
 
-# moved polybar startup to $HOME/.config/polybar/launch.sh
-# as suggested in polybar wiki and added script to bspwmrc
-#polybar main -q &
-#polybar -r --config=/home/blackbeard/.config/polybar/config.space top -q &
-#polybar -r --config=/home/blackbeard/.config/polybar/config.space bottom -q &
-
-###############
-## Restore previous pywal colors
-#exec wal -R &
-
-
 ################
 ## DWM
-# make -C /home/blackbeard/pkgs/suckless/dwm
-# make -C /home/blackbeard/pkgs/suckless/slstatus
-# exec /home/blackbeard/pkgs/suckless/slstatus/slstatus &
-# exec /home/blackbeard/pkgs/suckless/dwm/dwm
+#make -C /home/blackbeard/pkgs/suckless/dwm
+#make -C /home/blackbeard/pkgs/suckless/slstatus
+#exec /home/blackbeard/pkgs/suckless/slstatus/slstatus &
+#exec /home/blackbeard/pkgs/suckless/dwm/dwm
 
