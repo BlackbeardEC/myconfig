@@ -1,0 +1,17 @@
+! Created by Colterm with tracks-at-night.png
+*.background: #142429
+*.foreground: #98C196
+dwm.normbordercolor: #325C4B
+dwm.normbgcolor: #142429
+dwm.normfgcolor: #98C196
+dwm.selbordercolor: #98C196
+dwm.selbgcolor: #142429
+dwm.selfgcolor: #98C196
+*.color0: #325C4B
+*.color1: #BD4D33
+*.color2: #26B64E
+*.color3: #D4BE45
+*.color4: #0E34B6
+*.color5: #7243B3
+*.color6: #3CB7C9
+*.color7: #DDE9DF
