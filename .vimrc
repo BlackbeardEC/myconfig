@@ -433,11 +433,47 @@ set guioptions-=R
 set guioptions-=l
 set guioptions-=L
 
+" Force to use underline for spell check results
+augroup SpellUnderline
+  autocmd!
+  autocmd ColorScheme *
+    \ highlight SpellBad
+    \   cterm=Underline
+    \   ctermfg=NONE
+    \   ctermbg=NONE
+    \   term=Reverse
+    \   gui=Undercurl
+    \   guisp=Red
+  autocmd ColorScheme *
+    \ highlight SpellCap
+    \   cterm=Underline
+    \   ctermfg=NONE
+    \   ctermbg=NONE
+    \   term=Reverse
+    \   gui=Undercurl
+    \   guisp=Red
+  autocmd ColorScheme *
+    \ highlight SpellLocal
+    \   cterm=Underline
+    \   ctermfg=Red
+    \   ctermbg=NONE
+    \   term=Reverse
+    \   gui=Undercurl
+    \   guisp=Red
+  autocmd ColorScheme *
+    \ highlight SpellRare
+    \   cterm=Underline
+    \   ctermfg=NONE
+    \   ctermbg=NONE
+    \   term=Reverse
+    \   gui=Undercurl
+    \   guisp=Red
+  augroup END
+
 " Colorscheme
 set background=dark
-colorscheme SlateDark
-" Moving wal below the plugin line to see if that fixes things
-"colorscheme wal
+" colorscheme SlateDark
+colorscheme zmrok
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Fast editing and reloading of vimrc configs
@@ -497,14 +533,15 @@ Plugin 'alvan/vim-closetag'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'jiangmiao/auto-pairs'
+Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'tpope/vim-surround'
-Plugin 'scrooloose/nerdcommenter'
 Plugin 'vim-perl/vim-perl'
 Plugin 'rust-lang/rust.vim'
 Plugin 'timonv/vim-cargo'
@@ -512,7 +549,6 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vim-scripts/DoxygenToolkit.vim'
 Plugin 'rdnetto/YCM-Generator'
-Plugin 'dylanaraps/wal.vim'
 
 
 " All of your Plugins must be added before the following line
@@ -530,7 +566,6 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
-"colorscheme wal
 " ultisnip
 " Trigger configuration. Do not use <tab> if you use YouCompleteMe
 let g:UltiSnipsExpandTrigger="<C-e>"
@@ -629,8 +664,8 @@ nnoremap <F10> :SCCompileRun<cr>
 "     :call setpos('.', save_pos)
 " endfunction
 augroup cppgroup
-    autocmd filetype cpp nnoremap <Leader>o :w <CR>:!g++ % -o %:r -std=c++14 && ./%:r<CR>
-    autocmd filetype cc nnoremap <Leader>o :w <CR>:!g++ % -o %:r -std=c++14 && ./%:r<CR>
+    autocmd filetype cpp nnoremap <Leader>o :w <CR>:!g++ % -o %:r -std=c++17 && ./%:r<CR>
+    autocmd filetype cc nnoremap <Leader>o :w <CR>:!g++ % -o %:r -std=c++17 && ./%:r<CR>
     " auto fix indents when save
     " autocmd BufWritePre *.cpp :normal mkgg=G`k
     " autocmd BufWritePre *.cpp call Fixcpp()

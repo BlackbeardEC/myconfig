@@ -36,14 +36,15 @@ bspc rule -a qutebrowser desktop='^2'
 bspc rule -a Steam desktop='^5'
 bspc rule -a mpv state=floating
 bspc rule -a feh state=floating
+bspc rule -a Pcmanfm state=floating
 bspc rule -a Galculator state=floating
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 
 # Scratch pad
-#bspc rule -a scratchpad sticky=on state=floating hidden=on
-#xst -c scratchpad -e ~/.local/bin/scratch &
-bspc rule -a URxvt:scratchy sticky=on state=floating rectangle=1280x720+320+180
+bspc rule -a st-256color:scratchy sticky=on state=floating rectangle=1280x720+320+180
+#xst -c scratchy -e ~/.local/bin/scratch &
+#bspc rule -a URxvt:scratchy sticky=on state=floating rectangle=1280x720+320+180
 
 # moved polybar startup to ../polybar/launch.sh
 # as suggested in polybar wiki
@@ -83,6 +84,7 @@ fi
 xrdb ~/.Xdefaults
 
 
+picom -b
 #compton -b
 #compton -b --unredir-if-possible
-
+xsetroot -cursor_name pirate

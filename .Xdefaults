@@ -49,9 +49,10 @@ background=$(xrdb -query | grep -E "^\*\.background" | cut -d':' -f2 | sed -e 's
 !!! ST !!!
 ! These options only take effect on startup.
 st.termname:     st-256color
-st.font:    Inconsolata Nerd Font Mono:pixelsize=16:antialias=true
+!st.font:    Inconsolata Nerd Font Mono:pixelsize=18:antialias=true
+st.font:    DejaVuSansMono Nerd Font Mono:pixelsize=16:antialias=true
 ! The following options options can be reloaded via USR1 signal.
-!st.font:              Liberation Mono:pixelsize=12:antialias=true:autohint=true;
+!st.font:              Liberation Mono:pixelsize=16:antialias=true:autohint=true;
 st.borderpx:          10
 ! Available cursor values: 2 4 6 7 = █ _ | ☃ ( 1 3 5 are blinking versions)
 st.cursorshape:       2
@@ -73,3 +74,13 @@ st.cwscale:           1.1
 ! opacity==255 means what terminal will be not transparent, 0 - fully transparent
 st.opacity:      255
 
+st.background: #142429
+st.foreground: #98C196
+st.color0: #325C4B
+st.color1: #BD4D33
+st.color2: #26B64E
+st.color3: #D4BE45
+st.color4: #0E34B6
+st.color5: #7243B3
+st.color6: #3CB7C9
+st.color7: #DDE9DF

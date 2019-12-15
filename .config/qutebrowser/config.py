@@ -1496,6 +1496,7 @@ c.url.searchengines = {
         'DEFAULT': 'https://duckduckgo.com/?q={}',
         'i': 'https://duckduckgo.com/?q={}&iar=images&iax=images&ia=images',
         'red': 'https://reddit.com/r/{}',
+        'goo': 'https://google.com/q={}',
         'osm': 'http://www.openstreetmap.org/search?query={}',
         'tpb': 'http://thepiratebay.org/search/{}',
         'laincat': 'http://lainchan.org/{}/catalog.html',

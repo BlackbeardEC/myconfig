@@ -1,9 +1,14 @@
+#!/bin/zsh
+
+alias zshconfig="vim ~/.zshrc"
+alias zshrc="vim ~/.zshrc"
+alias ohmyzsh="vim ~/.oh-my-zsh"
+
 alias ls='ls --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
 alias ll='ls -lh --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
 alias la='ls -lha --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
-
-alias zshconfig="vim ~/.zshrc"
-alias ohmyzsh="vim ~/.oh-my-zsh"
+alias lr='ls -tRFh'   #sorted by date,recursive,show type,human readable
+alias lt='ls -ltFh'   #long list,sorted by date,show type,human readable
 alias l="ls -1sh"
 alias lla="ls -la"
 alias cdc="cd"
@@ -13,6 +18,7 @@ alias ping="ping -c 5"
 alias clr="clear; echo Currently logged in on $TTY, as $USER in directory $PWD."
 alias path="print -l $path"
 alias mkdir="mkdir -pv"
+alias rm="rm -i"
 alias grep='grep --color=auto'
 alias df='df -h'
 alias du='du -c -h'
@@ -45,6 +51,10 @@ alias md5="openssl md5"
 alias ports="netstat -tulanp"
 #alias ipx="curl -s http://ipinfo.io/ip"
 alias ipx="curl -4 icanhazip.com"
+alias preps="pacman -Slq | fzf -m --preview 'pacman -Si {1}' | xargs -ro sudo pacman -S"
+alias yreps="yay -Slq | fzf -m --preview 'yay -Si {1}'| xargs -ro yay -S"
+alias ff="find . -type f | fzf --preview '(highlight -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
+alias lf="locate / | fzf --preview '(highlight -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
 
 
 mem10(){
@@ -54,25 +64,25 @@ mem10(){
 # Twily colored man pages
 man() {
     env \
-        LESS_TERMCAP_mb=$(printf "\e[1;31m") \
-        LESS_TERMCAP_md=$(printf "\e[1;31m") \
+        LESS_TERMCAP_mb=$(printf "\e[1;30m") \
+        LESS_TERMCAP_md=$(printf "\e[32m") \
         LESS_TERMCAP_me=$(printf "\e[0m") \
         LESS_TERMCAP_se=$(printf "\e[0m") \
-        LESS_TERMCAP_so=$(printf "\e[1;40;33m") \
+        LESS_TERMCAP_so=$(printf "\e[41;33m") \
         LESS_TERMCAP_ue=$(printf "\e[0m") \
-        LESS_TERMCAP_us=$(printf "\e[1;32m") \
+        LESS_TERMCAP_us=$(printf "\e[1;37m") \
     man "$@"
 }
 
 # create a tmp directory and cd into it
 tmpd() {
-	local dir
-	if [ $# -eq 0 ]; then
-		dir=$(mktemp -d)
-	else
-		dir=$(mktemp -d -t "${1}.XXXXXXXXXX")
-	fi
-	cd "$dir" || exit
+    local dir
+    if [ $# -eq 0 ]; then
+        dir=$(mktemp -d)
+    else
+        dir=$(mktemp -d -t "${1}.XXXXXXXXXX")
+    fi
+    cd "$dir" || exit
 }
 
 # run popcorntime in docker
@@ -80,5 +90,29 @@ ptime(){
     xhost local:root;
     docker start popcorntime
 }
+
+# using ripgrep combined with preview
+# find-in-file - usage: fif <searchTerm>
+fif() {
+  if [ ! "$#" -gt 0 ]; then echo "Need a string to search for!"; return 1; fi
+  rg --files-with-matches --no-messages "$1" | fzf --preview "highlight -O ansi -l {} 2> /dev/null | rg --colors 'match:bg:yellow' --ignore-case --pretty --context 10 '$1' || rg --ignore-case --pretty --context 10 '$1' {}"
+}
+
+# fh - repeat history
+fh() {
+  print -z $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed -r 's/ *[0-9]*\*? *//' | sed -r 's/\\/\\\\/g')
+}
+
+# fkill - kill process
+fkill() {
+  local pid
+  pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
+
+  if [ "x$pid" != "x" ]
+  then
+    echo $pid | xargs kill -${1:-9}
+  fi
+}
+
 
 
