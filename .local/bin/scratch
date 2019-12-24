@@ -3,7 +3,7 @@
 id=$(xdo id -n scratchy);
 if [ -z "$id" ]; then
   #urxvt -name scratchy -e zsh -c "tmux new-session -A -s scratchy";
-  xst -n scratchy -e tmux new-session -A -s scratchy;
+  xst -n scratchy -e tmux new-session -A -s scratchy -n BeatS;
 else
   action='hide';
   if [[ $(xprop -id $id | awk '/window state: / {print $3}') == 'Withdrawn' ]]; then

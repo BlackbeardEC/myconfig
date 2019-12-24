@@ -81,6 +81,14 @@ fi
 #     compton -b --unredir-if-possible &
 # fi
 
+# MPD well Mopidy
+if pgrep -x "mopidy" > /dev/null
+then
+    echo "Mopidy already running"
+else
+    mopidy &
+fi
+
 xrdb ~/.Xdefaults
 
 
