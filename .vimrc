@@ -549,6 +549,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vim-scripts/DoxygenToolkit.vim'
 Plugin 'rdnetto/YCM-Generator'
+Plugin 'vim-syntastic/syntastic'
 
 
 " All of your Plugins must be added before the following line
@@ -679,7 +680,9 @@ augroup END
 autocmd BufWritePre * %s/\s\+$//e
 autocmd BufWritePre *.cpp :normal mkgg=G`k
 autocmd BufWritePre *.cc :normal mkgg=G`k
+autocmd BufWritePre *.c :normal mkgg=G`k
 autocmd BufWritePre *.h :normal mkgg=G`k
+autocmd BufWritePre *.rs :normal mkgg=G`k
 
 " Going through a vim-scripting tutorial
 " ctrl-d will delete line in insert mode

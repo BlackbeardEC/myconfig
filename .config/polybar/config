@@ -16,7 +16,7 @@ foreground = ${xrdb:foreground}
 
 ;line-color = ${bar/bottom.background}
 linecolor = ${xrdb:color12}
-line-size = 16
+line-size = 3
 
 spacing = 2
 padding-right = 2
@@ -35,6 +35,7 @@ font-5 = InconsolataGo Nerd Font Mono:style=Regular:size=8;0
 ; When false, the center position will be based on the size of the other blocks.
 fixed-center = true
 modules-left = mpd-vol mpd
+; modules-left = spotify
 modules-center = bspwm-tmp
 modules-right =wttr cpu-new memory-new filesystem volume popup-calendar
 
@@ -44,6 +45,15 @@ tray-maxsize = 18
 override-redirect = true
 wm-restack = bspwm
 
+
+; Spotify script to replace MPD/Mopidy to see if MPD is causing crash in 7dtd
+[module/spotify]
+type = custom/script
+interval = 1
+format-prefix = "♉ "
+format = %{A1:playerctl play-pause:}<label>%{A}
+exec = python ~/.config/polybar/scripts/spotify_status.py -p ',' -t 42 -f ' {play_pause}  {song} - {artist} - {album}'
+format-underline = #1db954
 
 [module/mpd-vol]
 type = custom/script

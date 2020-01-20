@@ -74,13 +74,13 @@ st.cwscale:           1.1
 ! opacity==255 means what terminal will be not transparent, 0 - fully transparent
 st.opacity:      255
 
-st.background: #142429
-st.foreground: #98C196
-st.color0: #325C4B
-st.color1: #BD4D33
-st.color2: #26B64E
-st.color3: #D4BE45
-st.color4: #0E34B6
-st.color5: #7243B3
-st.color6: #3CB7C9
-st.color7: #DDE9DF
+!st.background: #142429
+!st.foreground: #98C196
+!st.color0: #325C4B
+!st.color1: #BD4D33
+!st.color2: #26B64E
+!st.color3: #D4BE45
+!st.color4: #0E34B6
+!st.color5: #7243B3
+!st.color6: #3CB7C9
+!st.color7: #DDE9DF

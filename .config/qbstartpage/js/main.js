@@ -118,7 +118,11 @@ $.getJSON(hn_url, function(adata) {
           // console.log(item.url);
           var hnli = document.createElement('li');
           var hnlink = document.createElement('a');
-          hnlink.setAttribute('href', item.url);
+          if(item.url == undefined){
+            hnlink.setAttribute('href', "https://news.ycombinator.com/item?id=" + item.id);
+          }else{
+            hnlink.setAttribute('href', item.url);
+          }
           hnlink.setAttribute('target', '_blank');
           var hntext = document.createTextNode(item.title);
           hnlink.appendChild(hntext);

@@ -36,8 +36,10 @@ super + Escape
 XF86Audio{Mute,RaiseVolume,LowerVolume}
     amixer -q sset Master {toggle,5%+,5%-}
 
+# commenting this till I figure out whats up with Mopidy and Spotify
 XF86Audio{Prev,Next,Stop,Play}
-    mpc -q {prev,next,stop,toggle}
+    playerctl {previous,next,stop,play-pause}
+    # mpc -q {prev,next,stop,toggle}
 
 # open ncmpcpp
 super + n

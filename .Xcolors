@@ -1,18 +1,17 @@
-! Created by Colterm with tracks-at-night.png
-*.background: #142429
-*.foreground: #98C196
-dwm.normbordercolor: #325C4B
-dwm.normbgcolor: #142429
-dwm.normfgcolor: #98C196
-dwm.selbordercolor: #98C196
-dwm.selbgcolor: #142429
-dwm.selfgcolor: #98C196
-*.color0: #325C4B
-*.color1: #BD4D33
-*.color2: #26B64E
-*.color3: #D4BE45
-*.color4: #0E34B6
-*.color5: #7243B3
-*.color6: #3CB7C9
-*.color7: #DDE9DF
-
+! Created by Colterm with pirates-skull.jpg
+*.background: #14191B
+*.foreground: #9A9F96
+dwm.normbordercolor: #674838
+dwm.normbgcolor: #14191B
+dwm.normfgcolor: #9A9F96
+dwm.selbordercolor: #9A9F96
+dwm.selbgcolor: #14191B
+dwm.selfgcolor: #9A9F96
+*.color0: #674838
+*.color1: #B44E24
+*.color2: #4D5652
+*.color3: #E3B54E
+*.color4: #465157
+*.color5: #DBD2C3
+*.color6: #A6ACAB
+*.color7: #D2BA87
