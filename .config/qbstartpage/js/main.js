@@ -44,7 +44,8 @@ let my_data = {
     {
       name: 'trackerz',
       links: [
-        { name: 'TPB', url: 'https://thepiratebay.cr/' },
+        { name: 'DxDHD', url: 'https://dxdhd.com' },
+        { name: 'TLeech', url: 'https://www.torrentleech.org' },
         { name: 'KAT', url: 'https://kickass.cd/full/' },
         { name: 'Demonoid', url: 'https://www.demonoid.pw/' },
         { name: 'Nyya', url: 'https://nyaa.pantsu.cat/' },

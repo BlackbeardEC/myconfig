@@ -36,6 +36,7 @@ bspc rule -a qutebrowser desktop='^2'
 bspc rule -a Steam desktop='^5'
 bspc rule -a mpv state=floating
 bspc rule -a feh state=floating
+bspc rule -a xterm state=floating
 bspc rule -a Pcmanfm state=floating
 bspc rule -a Galculator state=floating
 bspc rule -a Kupfer.py focus=on

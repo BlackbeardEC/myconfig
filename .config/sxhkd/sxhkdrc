@@ -12,8 +12,8 @@ super + @space
     /home/blackbeard/.local/bin/dmen.sh
     # dmenu_run -i -l 10 -nb '#011627' -nf '#e63d14' -sf '#011627' -sb '#e63d14' -fn 'source code pro:size=10'
 # I want to try a new dmenu binding
-alt + z
-    /home/blackbeard/.local/bin/dmen.sh
+# alt + z
+#     /home/blackbeard/.local/bin/dmen.sh
 
 
 # make sxhkd reload its configuration files:
@@ -212,7 +212,7 @@ alt + p
 # ctrl + alt + n
 #     ~/.scripts/rust_sell_metal
 ctrl + alt + m
-    xdotool key KP_Multiply
+    ~/.scripts/7dtd_casino
 #~/.scripts/7dtd_ai
 
 # setting up i3lock

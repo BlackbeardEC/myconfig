@@ -27,17 +27,17 @@ module-margin = 2
 font-0 = NotoSans Nerd Font:style=Regular:size=10;-1
 font-1 = InconsolataGo Nerd Font Mono:size=12;0
 font-2 = Termsynu:size=10:antialias=false;-2
-font-3 = "Font Awesome 5 Free:style=Regular:size=12;0"
+font-3 = "Noto Color Emoji:style=Regular:pixelsize=10:scale=10;0"
 font-4 = NotoSans Nerd Font:style=Regular:size=8;0
 font-5 = InconsolataGo Nerd Font Mono:style=Regular:size=8;0
 
 ; Prefer fixed center position for the `modules-center` block
 ; When false, the center position will be based on the size of the other blocks.
 fixed-center = true
-modules-left = mpd-vol mpd
 ; modules-left = spotify
+modules-left = mpd-vol mpd
 modules-center = bspwm-tmp
-modules-right =wttr cpu-new memory-new filesystem volume popup-calendar
+modules-right = wttr vpn-openvpn-status cpu-new memory-new filesystem volume popup-calendar
 
 tray-position = right
 tray-maxsize = 18
@@ -111,20 +111,45 @@ type = custom/script
 exec = ~/.scripts/weather
 interval = 900
 click-left = $BROWSER wttr.in
-label-active-font = 7
+;label-active-font = 4
 
 [module/cpu-new]
 type = internal/cpu
 interval = 2
-format = <label>
+;format = <label>
 format-foreground = ${xrdb:color3}
-label = ⚞  %percentage%%
+label = 🤖  %percentage%%
+; Available tags:
+;   <label> (default)
+;   <bar-load>
+;   <ramp-load>
+;   <ramp-coreload>
+format = <label> <ramp-coreload>
+
+; Available tokens:
+;   %percentage% (default) - total cpu load averaged over all cores
+;   %percentage-sum% - Cumulative load on all cores
+;   %percentage-cores% - load percentage for each core
+;   %percentage-core[1-9]% - load percentage for specific core
+;label = CPU %percentage%%
+
+; Spacing between individual per-core ramps
+ramp-coreload-spacing = 1
+ramp-coreload-0 = ▁
+ramp-coreload-1 = ▂
+ramp-coreload-2 = ▃
+ramp-coreload-3 = ▄
+ramp-coreload-4 = ▅
+ramp-coreload-5 = ▆
+ramp-coreload-6 = ▇
+ramp-coreload-7 = █
+
 
 [module/memory-new]
 type = internal/memory
 format = <label>
 format-foreground = ${xrdb:color3}
-label = %{A1:~/.scripts/topmem:}  %gb_used%⚟%{A}
+label = %{A1:~/.scripts/topmem:}🐏  %gb_used%%{A}
 
 [module/filesystem]
 type = internal/fs
@@ -132,7 +157,7 @@ interval = 25
 
 mount-0 = /
 
-label-mounted = %mountpoint% :  %percentage_used%% - %free%
+label-mounted = 💽  %percentage_used%% - %free%
 
 
 [module/volume]
@@ -157,4 +182,7 @@ exec = ~/.config/polybar/scripts/popcal
 interval = 25
 click-left = ~/.config/polybar/scripts/popcal --popup
 
-
+[module/vpn-openvpn-status]
+type = custom/script
+exec = ~/.config/polybar/scripts/vpn-openvpn-status.sh
+interval = 5

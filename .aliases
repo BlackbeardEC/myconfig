@@ -29,6 +29,10 @@ alias poop="systemctl poweroff"
 alias ree="systemctl reboot"
 alias gc="cd ~/.config && l"
 alias beats="mpc volume 4; ncmpcpp"
+alias vpnu="sudo surfshark-vpn"
+alias vpnd="sudo surfshark-vpn down"
+alias pwdc="pwd | xclip -selection clipboard"
+alias which_term="perl -lpe 's/\0/ /g' /proc/$(xdotool getwindowpid $(xdotool getactivewindow))/cmdline"
 
 alias -g gp="| grep -i --color=auto"
 alias -g H='| head'

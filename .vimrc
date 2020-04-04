@@ -283,7 +283,7 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 set laststatus=2
 
 " Format the status line
-set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{fnamemodify(getcwd(),':t')}%h\ \ \ Line:\ %l\ \ Column:\ %c
+"set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{fnamemodify(getcwd(),':t')}%h\ \ \ Line:\ %l\ \ Column:\ %c
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -319,8 +319,12 @@ autocmd BufWrite *.coffee :call DeleteTrailingWS()
 " => Spell checking
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Pressing ,ss will toggle and untoggle spell checking
-map <leader>ss :setlocal spell!<cr>
-"Spell-check set to F7
+" map <leader>ss :setlocal spell!<cr>
+
+" Set spell on by default
+set spell
+
+" Spell-check set to F7
 map <F7> :setlocal spell! spelllang=en_us<CR>
 
 " Shortcuts using <leader>
@@ -422,7 +426,8 @@ elseif has("win16") || has("win32")
 elseif has("gui_gtk2")
     set gfn=Hack\ 14,Source\ Code\ Pro\ 12,Bitstream\ Vera\ Sans\ Mono\ 11
 elseif has("linux")
-    set gfn=Hack\ 14,Source\ Code\ Pro\ 12,Bitstream\ Vera\ Sans\ Mono\ 11
+    set gfn=Inconsolata\ Nerd\ Font\ Complete,Source\ Code\ Pro\ 12,Bitstream\ Vera\ Sans\ Mono\ 11
+    " set gfn=Hack\ 14,Source\ Code\ Pro\ 12,Bitstream\ Vera\ Sans\ Mono\ 11
 elseif has("unix")
     set gfn=Monospace\ 11
 endif
@@ -473,7 +478,8 @@ augroup SpellUnderline
 " Colorscheme
 set background=dark
 " colorscheme SlateDark
-colorscheme zmrok
+" Press F8 to switch colorscheme, then change it here
+colorscheme slate
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Fast editing and reloading of vimrc configs
@@ -608,7 +614,7 @@ map <leader>i :IndentGuidesToggle<cr>
 :let g:notes_directories = ['~/Documents/Notes']
 
 """"""""""""""""""""""""""""""""""""""""""
-" ycm extra to finx c c++ error
+" ycm extra to fix c c++ error
 " let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py'
 " Auto close 'hint' window after leave insert mode
@@ -631,7 +637,34 @@ let g:airline_detect_modified=1
 let g:airline_detect_paste=1
 let g:airline_detect_crypt=1
 let g:airline_detect_spell=1
-let g:airline_theme='luna'
+let g:airline_theme='jellybeans'
+" let g:airline_theme='luna'
+" let g:airline_symbols.whitespace = 'Ξ'
+
+
+" let g:airline#extensions#default#section_truncate_width = {
+"     \ 'b': 79,
+"     \ 'x': 20,
+"     \ 'y': 20,
+"     \ 'z': 20,
+"     \ 'warning': 80,
+"     \ 'error': 80,
+"     \ }
+
+" Note: set to an empty dictionary to disable truncation.
+" let g:airline#extensions#default#section_truncate_width = {}
+
+""""""""""""""""""""""""""""""""""
+" Putting syntastic status line stuff here near airline
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_python_checkers = ['python3']
 
 
 """LATEX
@@ -641,13 +674,7 @@ let g:airline_theme='luna'
 " autocmd FileType tex nnoremap <C-o> :!<Space>setsid<Space>mupdf<Space><C-R>%<Backspace><Backspace><Backspace>pdf<Space>&><Space>/dev/null<Space>&<Enter><Enter>
 " augroup END
 
-"""GROFF
-" augroup groff
-" "autocmd FileType ms nnoremap <C-g> :w<Enter>:!(setsid<Space>groff<space>-ms<Space><C-R>%<Space>-T<space>pdf<space>><space>%.pdf&)<Enter><Enter>
-" autocmd FileType ms nnoremap <C-g> :w<Enter>:!groff -ms % -T pdf > %:r.pdf <Enter><Enter>
-" autocmd FileType ms nnoremap <C-o> :!<Space>setsid<Space>mupdf<Space><C-R>%<Backspace><Backspace><Backspace>pdf<Space>&><Space>/dev/null<Space>&<Enter><Enter>
-" augroup END
-"nnoremap <C-g> :w<Enter>:!(setsid<Space>groff<space>-ms<Space><C-R>%<Space>-T<space>pdf<space>><space>%:r.pdf&)<Enter><Enter>
+"""Markdown
 nnoremap <C-g> :w<Enter>:!(setsid<Space>pandoc<space>-s<space><C-R>%<space>-o<space><C-R>%<Backspace><Backspace>html)<Enter><Enter>
 nnoremap <C-o> :!<Space>setsid<Space>mupdf<Space><C-R>%<Backspace><Backspace>pdf<Space>&><Space>/dev/null<Space>&<Enter><Enter>
 
@@ -665,11 +692,23 @@ nnoremap <F10> :SCCompileRun<cr>
 "     :call setpos('.', save_pos)
 " endfunction
 augroup cppgroup
-    autocmd filetype cpp nnoremap <Leader>o :w <CR>:!g++ % -o %:r -std=c++17 && ./%:r<CR>
-    autocmd filetype cc nnoremap <Leader>o :w <CR>:!g++ % -o %:r -std=c++17 && ./%:r<CR>
+    autocmd filetype cpp nnoremap <Leader>r :w <CR>:!g++ % -o %:r -std=c++17 && ./%:r<CR>
+    autocmd filetype cc nnoremap <Leader>r :w <CR>:!g++ % -o %:r -std=c++17 && ./%:r<CR>
     " auto fix indents when save
     " autocmd BufWritePre *.cpp :normal mkgg=G`k
     " autocmd BufWritePre *.cpp call Fixcpp()
+augroup END
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Cargo run and other rust stuff
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" map <leader>r :CargoRun<cr>
+augroup vimrc-rust
+    autocmd!
+    " autocmd FileType rust nnoremap <buffer><silent>K :<C-u>Unite rust/doc:cursor -no-empty -immediately<CR>
+    " autocmd FileType rust vnoremap <buffer><silent>K :Unite rust/doc:visual -no-empty -immediately<CR>
+    " autocmd FileType rust nnoremap <leader>r :normal mkgg=G`k|:w<cr>|:CargoRun<cr>
+    autocmd FileType rust nnoremap <leader>r :CargoRun<cr>
 augroup END
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -682,7 +721,9 @@ autocmd BufWritePre *.cpp :normal mkgg=G`k
 autocmd BufWritePre *.cc :normal mkgg=G`k
 autocmd BufWritePre *.c :normal mkgg=G`k
 autocmd BufWritePre *.h :normal mkgg=G`k
-autocmd BufWritePre *.rs :normal mkgg=G`k
+" autocmd BufWritePre *.rs :normal mkgg=G`k
+autocmd BufWritePre *.rs :RustFmt
+autocmd BufWritePost *.* :AirlineRefresh
 
 " Going through a vim-scripting tutorial
 " ctrl-d will delete line in insert mode
