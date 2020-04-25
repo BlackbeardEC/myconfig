@@ -11,7 +11,8 @@ let my_data = {
         { name: 'HackNews', url: 'https://news.ycombinator.com/' },
         { name: 'Teknik', url: 'https://teknik.io/' },
         { name: 'DOX', url: 'https://inteltechniques.com/index.html' },
-        { name: 'DOX2', url: 'https://pipl.com/' }
+        { name: 'DOX2', url: 'https://pipl.com/' },
+        { name: 'ScratchPad', url: 'file:///home/blackbeard/.scratch_pad.html' }
       ]
     },
 

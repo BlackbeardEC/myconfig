@@ -698,6 +698,11 @@ augroup cppgroup
     " autocmd BufWritePre *.cpp :normal mkgg=G`k
     " autocmd BufWritePre *.cpp call Fixcpp()
 augroup END
+" Also making <leader>+r run bash scripts
+autocmd filetype sh nnoremap <Leader>r :w <CR>:!bash %<CR>
+" And python scripts
+autocmd filetype python nnoremap <Leader>r :w <CR>:!python %<CR>
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Cargo run and other rust stuff

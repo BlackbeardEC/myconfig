@@ -56,8 +56,7 @@ body{
     vertical-align:middle;
     display: inline-block;
     justify-content: center;
-    transition-timing-function: ease;
-    transition:all 1.0s ease-in;
+    transition:all 1.0s linear;
 }
 
 .sqr li{
